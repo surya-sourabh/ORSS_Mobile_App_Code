@@ -1,0 +1,53 @@
+<ion-header class="ion-no-border"> </ion-header>
+<div class="container">
+  <button class="X" (click)="dismiss()">
+    <ion-icon name="close" style="font-weight: 900; font-size: 14px"></ion-icon>
+  </button>
+  <ion-list>
+    <ion-list-header>
+      <ion-label class="header">Add Device to Channel</ion-label>
+    </ion-list-header>
+    <form>
+      <div class="icon-align" (click)="openModal()">
+        <fa-icon [icon]="['fas', userSelectedIcon]"></fa-icon>
+      </div>
+
+      <ion-item>
+        <ion-input
+          type="text"
+          style="font-size: 0.9em; color: #8e8e8e"
+          placeholder="Your Device Name"
+          [(ngModel)]="deviceNameFromModal"
+          name="deviceNameFromModal"
+        ></ion-input>
+      </ion-item>
+      <div *ngIf="emptyDeviceName" class="err">Device Name is required</div>
+
+      <ion-item>
+        <ion-label class="fsz" style="color: #8e8e8e" position="stacked"
+          >Choose Plug</ion-label
+        >
+        <ion-select
+          placeholder="Plug Number"
+          style="color: #484b9a"
+          [(ngModel)]="plugNumberFromModal"
+          name="plugNumberFromModal"
+        >
+          <ion-select-option
+            *ngFor="
+              let numbers of pnumbers;
+              let i = index;
+              trackBy: trackByValue
+            "
+            >{{ numbers.ind }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <div *ngIf="emptyPlug" class="err">Please select a Plug Number</div>
+    </form>
+  </ion-list>
+  <app-primary-button
+    [primaryBtnText]="primaryBtnText"
+    (click)="saveFields()"
+  ></app-primary-button>
+</div>

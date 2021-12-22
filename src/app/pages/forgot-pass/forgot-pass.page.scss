@@ -1,0 +1,90 @@
+.back-btn {
+  position: absolute;
+  color: #484b9a;
+  font-weight: 900;
+}
+
+ion-item {
+  --background: #fff;
+}
+ion-list {
+  padding: 0;
+  margin: 10px 15px;
+}
+ion-content {
+  height: 89%;
+}
+
+ion-title {
+  justify-content: center;
+  align-items: center;
+  height: 23px;
+  color: #484b9a;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.form-container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.labels {
+  font-size: 18px;
+  color: #8e8e8e;
+}
+
+ion-input {
+  color: #484b9a;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+ion-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8e8e8e;
+  margin: 0px 10px 0px 10px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+ion-item {
+  width: 100%;
+  margin: 0 10px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.ctn-btn {
+  width: 150px;
+  height: 40px;
+  font-size: 14px;
+  color: #fff;
+  font-weight: 400;
+  border-radius: 10px !important;
+  background: linear-gradient(266.99deg, #f980d7, #8686fd) !important;
+}
+
+.lightImg {
+  background: url("../../../assets/images/Lightbulb.svg");
+  width: 270px;
+  height: 170px;
+  position: absolute;
+  bottom: 0;
+  right: -30px;
+  background-repeat: no-repeat;
+}

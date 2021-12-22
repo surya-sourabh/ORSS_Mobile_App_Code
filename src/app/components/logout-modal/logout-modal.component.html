@@ -1,0 +1,13 @@
+<ion-header class="ion-no-border"> </ion-header>
+
+<div class="container">
+  <button class="X" (click)="dismiss()">X</button>
+  <ion-text
+    >This will log you out of <br />
+    the system</ion-text
+  >
+  <app-primary-button
+    [primaryBtnText]="primaryBtnText"
+    (btnEvent)="signOutAccount()"
+  ></app-primary-button>
+</div>

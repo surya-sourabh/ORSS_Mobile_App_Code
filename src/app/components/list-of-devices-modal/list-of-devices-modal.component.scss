@@ -1,0 +1,35 @@
+ion-toolbar {
+  --background: #fff;
+}
+
+ion-title {
+  height: 21px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  color: #484b9a;
+}
+ion-content {
+  height: 89%;
+}
+
+ion-list {
+  background: #fff;
+}
+
+.close-btn {
+  position: absolute;
+  right: 0;
+  margin: 15px;
+  color: #365cbc;
+}
+
+.sceneName {
+  height: 21px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px;
+  color: #484b9a;
+  margin: 0px 15px;
+}

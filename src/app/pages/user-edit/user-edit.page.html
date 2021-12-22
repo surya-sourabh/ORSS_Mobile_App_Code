@@ -1,0 +1,66 @@
+<ion-header class="ion-no-border">
+  <app-header
+    [title]="title"
+    [backBtn]="true"
+    [notificationIcon]="false"
+    [nextBtn]="false"
+    [doneBtn]="false"
+    [saveBtn]="true"
+    (backBtnEvent)="backBtnTo()"
+    (saveBtnEvent)="saveBtnTo()"
+  ></app-header>
+</ion-header>
+
+<ion-content>
+  <ion-title class="ion-no-border">
+    <div class="avatar">
+      <div class="image-upload">
+        <label for="file-input">
+          <img src="{{memberPhoto}}" class="avatar-img" alt="profile-image" />
+
+          <img
+            class="edit-icon-img"
+            src="assets/images/edit.png"
+            alt="edit-icon"
+          />
+        </label>
+
+        <!-- <input
+          id="file-input"
+          type="file"
+          name="inputFile"
+          (change)="selectFile($event)"
+          required
+          hidden
+        /> -->
+      </div>
+    </div>
+    <div class="name">
+      <a class="text"> {{message2}}</a>
+    </div>
+  </ion-title>
+
+  <div class="contain">
+    <ion-row>
+      <ion-col size="12">
+        <div class="left">Permissions</div>
+        <div class="right">
+          <button class="CloneBtn" (click)="cloneModal();">
+            Clone&nbsp; <fa-icon [icon]="['fas', viewRIcon]"></fa-icon>
+          </button>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <p>List of all devices, this member has permission to</p>
+    </ion-row>
+  </div>
+  <div *ngFor="let item of channels;let i=index">
+    <app-accordion
+      [channelName]="channelName[i]"
+      [channelId]="channelId[i]"
+    ></app-accordion>
+  </div>
+
+  <app-footer-component [home]="true"></app-footer-component>
+</ion-content>

@@ -1,0 +1,59 @@
+
+.icon-align {
+  border: 1px solid #484b9a;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  padding: 11px;
+  color: #484b9a;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  margin: auto;
+}
+
+
+ion-input{
+  --placeholder-opacity:1;
+}
+ion-select{
+  --placeholder-opacity:1;
+}
+ion-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #484b9a;
+  overflow: visible;
+}
+ion-toolbar {
+  padding: 0 !important;
+}
+ion-list-header {
+  border-radius: 10px;
+}
+
+#closeBtn-container {
+  position: absolute;
+  right: 0px;
+  top: -5px;
+}
+
+ion-list {
+  padding: 0;
+  background: #fff;
+}
+
+ion-item {
+  --background: #fff;
+}
+
+label {
+  left: 0;
+  color: #484b9a !important;
+}
+.err {
+  color: red;
+  font-size: 14px;
+}

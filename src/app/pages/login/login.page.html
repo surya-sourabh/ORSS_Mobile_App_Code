@@ -1,0 +1,90 @@
+<app-header
+  [title]="title"
+  [backBtn]="true"
+  [notificationIcon]="false"
+  [nextBtn]="false"
+  [doneBtn]="false"
+  [saveBtn]="false"
+  (backBtnEvent)="backBtnTo()"
+></app-header>
+<ion-content slot="fixed">
+  <form class="form">
+    <ion-list>
+      <ion-item class="ion-no-padding">
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          placeholder="email@email.com"
+        ></ion-input> </ion-item
+      ><br />
+
+      <ion-item class="ion-no-padding">
+        <ion-label position="stacked">Password</ion-label>
+        <ion-input
+          name="password"
+          [(ngModel)]="password"
+          placeholder="Your secure password"
+          [type]="showPassword ? 'text' : 'password'"
+        ></ion-input>
+        <ion-icon
+          [name]="passwordToggleIcon"
+          (click)="togglePassword()"
+          slot="end"
+        ></ion-icon>
+      </ion-item>
+      <div class="toggle">
+        <div class="center-vertical">
+          <div>
+            <ion-toggle
+              checked="{{toggle}}"
+              type="checkbox"
+              (click)="change($event)"
+            ></ion-toggle>
+          </div>
+          <div>
+            <ion-text class="rem-me" slot="start">Remember Me</ion-text>
+          </div>
+        </div>
+        <div class="fg-pass">
+          <a class="fg-pass-text" (click)="fg()">Forgot Password?</a>
+        </div>
+      </div>
+      <app-primary-button
+        [primaryBtnText]="primaryBtnText"
+        (btnEvent)="login()"
+      ></app-primary-button>
+    </ion-list>
+  </form>
+
+  <p class="signup-text">
+    Don't have an account?<a (click)="signup()">&nbsp;Sign Up here</a>
+  </p>
+  <div class="hr-line"></div>
+  <div class="or">
+    <p class="or">OR</p>
+  </div>
+
+  <div class="two-btns">
+    <div class="left-btn">
+      <button class="fb-btn" (click)="signInViaFacebook()">
+        Connect with &nbsp;
+        <div class="logo-container">
+          <ion-icon name="logo-facebook" class="btnLogos"></ion-icon>
+        </div>
+      </button>
+    </div>
+    <div class="right-btn">
+      <button class="google-btn" (click)="signInViaGoogle()">
+        Connect with &nbsp;
+        <div class="logo-container">
+          <ion-icon name="logo-google" class="btnLogos"></ion-icon>
+        </div>
+      </button>
+    </div>
+  </div>
+</ion-content>
+
+<!-- <img [src]="user.picture.data.url" /> -->
+<div class="lightImg"></div>

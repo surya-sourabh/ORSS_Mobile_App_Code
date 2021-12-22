@@ -1,0 +1,394 @@
+<app-header
+  [title]="title"
+  [backBtn]="false"
+  [notificationIcon]="false"
+  [notificationBadgeIcon]="false"
+  [nextBtn]="false"
+  [doneBtn]="false"
+  [saveBtn]="false"
+></app-header>
+<ion-content class="main-content">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content> </ion-refresher-content>
+  </ion-refresher>
+  <app-title-bar
+    [titlebarLSubTiText]="titlebarLSubTiText"
+    [titlebarRSubTiText]="titlebarRSubTiText"
+    [titlebarLTiText]="titlebarLTiText"
+    [titlebarRTiText]="titlebarRTiText"
+  ></app-title-bar>
+
+  <!-- first screen start -->
+  <div *ngIf="hideFromSecondaryUsers">
+    <div id="home-full-dashboard" *ngIf="listOfScenes">
+      <ion-grid>
+        <app-view-all-button
+          [viewLText]="viewLText[3]"
+          [viewLIcon]="viewLIcon[2]"
+          [viewRIcon]="viewRIcon[0]"
+          [viewRText]="viewRText[0]"
+          [navigateLink]="navigateLink[0]"
+          [showRightButton]="showRightButton"
+        ></app-view-all-button>
+        <ion-row>
+          <ion-col size="12" class="global-italic-subtext"
+            >Click on the scene below to activate it</ion-col
+          >
+        </ion-row>
+      </ion-grid>
+
+      <div class="scroll" scrollX="true">
+        <div class="global-scroll-prop">
+          <div *ngFor="let scene of  sceneName;let i=index">
+            <app-scenes-box
+              [sceneName]="sceneName[i]"
+              [sceneIcon]="sceneIcon[0]"
+              [sceneId]="sceneId[i]"
+              [statusArray]="statusArray[i].status"
+              [totalScenesDevices]="totalScenesDevices[i]"
+              (clickEvent)="activate()"
+              (sceneIdEvent)="sceneIdEvent=$event"
+            ></app-scenes-box>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <ion-button (click)="getTime()">Test</ion-button> -->
+    <div
+      id="mychannel-addchannel-section"
+      *ngIf="showAddChannel;else showAddDevice"
+    >
+      <div class="global-icon-desc-prop">
+        <fa-icon class="global-icon-prop" [icon]="['fas','dice-two']"></fa-icon>
+        My&nbsp;Channels
+      </div>
+
+      <div class="global-desc-prop">
+        <p>
+          There are no channels yet, please add a channel &amp; configure it to
+          see the power of our system.
+        </p>
+      </div>
+
+      <div class="img-5">
+        <ion-img [src]="'assets/images/image (5).png'"></ion-img>
+      </div>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-text-center">
+            <ion-button
+              class="add-btn-prop"
+              fill="outline"
+              size="small"
+              (click)="addChannel()"
+              >Add Channels<ion-icon
+                id="add-channel-icon"
+                name="add"
+              ></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <!-- </div> -->
+    <!-- first screen end -->
+    <!-- second screen start -->
+    <ng-template #showAddDevice>
+      <div id="my-channel-list-add-devices-blank-section">
+        <ion-grid>
+          <app-view-all-button
+            [viewLText]="viewLText[0]"
+            [viewLIcon]="viewLIcon[0]"
+            [viewRIcon]="viewRIcon[0]"
+            [viewRText]="viewRText[1]"
+            [navigateLink]="navigateLink[1]"
+            [showRightButton]="showRightButton"
+          ></app-view-all-button>
+
+          <ion-row>
+            <ion-col size="12" class="global-italic-subtext"
+              >List of existing channels</ion-col
+            >
+          </ion-row>
+        </ion-grid>
+
+        <div class="scroll" scrollX="true">
+          <div class="global-scroll-prop">
+            <div *ngFor="let item of channelsArray;let i=index">
+              <app-channnel-box
+              [powerState]="activeState[i]"
+                [channelName]="channelName[i]"
+                [channelIcon]="channelIcon[i] == undefined ? 'fan' : channelIcon[i]"
+                [channelId]="channelId[i]"
+                [channelDeviceConnected]="channelDeviceConnected[i]"
+                [channelCapacity]="channelCapacity[i]"
+                (btnEvent)="channelLink(channelId[i])"
+                (onOffBtnEvent)="onOffBtn(macId[i],channelCapacity[i],channelId[i])"
+              ></app-channnel-box>
+            </div>
+          </div>
+        </div>
+        <!-- <ion-button (click)="mqtt()">MQTT</ion-button> -->
+        <div *ngIf="addDeviceUi;else listOfAllDevice">
+          <div class="global-icon-desc-prop">
+            <fa-icon class="global-icon-prop" [icon]="['fas','plug']"></fa-icon>
+            My&nbsp;Devices
+          </div>
+
+          <div class="global-desc-prop">
+            <p>
+              There are No devices added yet, please add a device to the channel
+              in order to use it.
+            </p>
+          </div>
+
+          <div class="img-4">
+            <ion-img [src]="'assets/images/image (4).png'"></ion-img>
+          </div>
+          <ion-grid>
+            <ion-row>
+              <ion-col class="ion-text-center">
+                <ion-button
+                  class="add-btn-prop"
+                  fill="outline"
+                  size="small"
+                  (click)="addDevice()"
+                  >Add Devices<ion-icon
+                    id="add-channel-icon"
+                    name="add"
+                  ></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+      <ng-template #listOfAllDevice>
+        <ion-grid>
+          <app-view-all-button
+            [viewLText]="viewLText[1]"
+            [viewLIcon]="viewLIcon[1]"
+            [viewRIcon]="viewRIcon[0]"
+            [viewRText]="viewRText[2]"
+            [navigateLink]="navigateLink[4]"
+            [showRightButton]="showRightButton"
+          ></app-view-all-button>
+          <ion-row>
+            <ion-col size="12" class="global-italic-subtext"
+              >List of my electronic devices</ion-col
+            >
+          </ion-row>
+        </ion-grid>
+        <div class="scroll" scrollX="true">
+          <div class="global-scroll-prop">
+            <div *ngFor="let item of resultDeviceList;">
+              <app-device-box
+                [deviceId]="item.devicId"
+                [powerState]="item.state == 1 || item.state=='ON' ? 'power-on' :item.state==0 || item.state=='OFF'? 'power-off' : 'power-default'"
+                [deviceIcon]="item.deviceIcon"
+                [deviceName]="item.deviceName"
+                [channelName]="item.channelName"
+                [plugNumber]="item.plugNumber"
+                [deviceIconsType]="deviceIconsType[0]"
+                [plugBox]="plugBox[1]"
+                (btnClickEvent)="click(item.plugNumber, item.macId,item.state)"
+              >
+              </app-device-box>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </ng-template>
+
+    <!-- second screen end -->
+
+    <!-- third screen start -->
+    <div *ngIf="noScenes">
+      <!-- <div id="my-channel-list-add-devices-list-section"> -->
+      <div class="global-icon-desc-prop">
+        <fa-icon class="global-icon-prop" [icon]="['fas','cogs']"></fa-icon>
+        My&nbsp;Scenes
+      </div>
+
+      <div class="global-desc-prop">
+        <p>
+          There are no scenes added yet, you can create your custom scene,
+          control your home and make it a
+          <span style="font-weight: 700">Smart Home.</span>
+        </p>
+      </div>
+
+      <div class="img-6">
+        <ion-img [src]="'assets/images/image (6).png'"></ion-img>
+      </div>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-text-center">
+            <ion-button
+              class="add-btn-prop"
+              fill="outline"
+              size="small"
+              (click)="addScene()"
+              >Add Scenes<ion-icon id="add-channel-icon" name="add"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <!-- </div> -->
+    </div>
+    <!-- fourth screen end -->
+
+    <!-- fifth screen start -->
+
+    <div *ngIf="showAddMembers">
+      <div class="global-icon-desc-prop">
+        <fa-icon
+          class="global-icon-prop"
+          [icon]="['fas','users-cog']"
+        ></fa-icon>
+        Members
+      </div>
+
+      <div class="global-desc-prop">
+        <p>
+          There are no members added yet, you can add members, and those members
+          can control your
+          <span style="font-weight: 700">Smart Home.</span>
+        </p>
+      </div>
+      <div class="global-desc-prop align">
+        <p>
+          New members will be shown here once they login with their account.
+        </p>
+      </div>
+
+      <div class="img-6">
+        <ion-img [src]="'assets/images/image (6).png'"></ion-img>
+      </div>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-text-center">
+            <ion-button
+              class="add-btn-prop"
+              fill="outline"
+              size="small"
+              (click)="addMembers()"
+              >Add Members<ion-icon id="add-channel-icon" name="add"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div *ngIf="showUsers">
+      <ion-grid>
+        <app-view-all-button
+          [viewLText]="viewLText[2]"
+          [viewLIcon]="viewLIcon[3]"
+          [navigateLink]="navigateLink[2]"
+          [viewRIcon]="viewRIcon[0]"
+          [viewRText]="viewRText[3]"
+          [showRightButton]="showRightButton"
+        ></app-view-all-button>
+      </ion-grid>
+      <ion-grid>
+        <ion-row size="12" class="global-italic-subtext"
+          >List of all members in the home</ion-row
+        >
+      </ion-grid>
+      <div class="scroll" scrollX="true">
+        <div class="global-scroll-prop">
+          <div *ngFor="let item of membersArray;let i=index">
+            <app-members-box
+              [userMemberName]="memberName[i]"
+              [memberPhoto]="memberPhoto[i]"
+            ></app-members-box>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- For secondary Users -->
+  <div *ngIf="secondaryUserPageShow">
+    <ion-grid>
+      <app-view-all-button
+        [viewLText]="viewLText[0]"
+        [viewLIcon]="viewLIcon[0]"
+        [viewRIcon]="viewRIcon[0]"
+        [viewRText]="viewRText[1]"
+        [navigateLink]="navigateLink[1]"
+        [showRightButton]="showRightButton"
+      ></app-view-all-button>
+
+      <ion-row>
+        <ion-col size="12" class="global-italic-subtext"
+          >List of existing channels</ion-col
+        >
+      </ion-row>
+    </ion-grid>
+
+    <div class="scroll" scrollX="true">
+      <div class="global-scroll-prop">
+        <div *ngFor="let item of channelsArray;let i=index">
+          <app-channnel-box
+                [powerState]="activeState[i]"
+                [channelName]="channelName[i]"
+                [channelIcon]="channelIcon[i] == undefined ? 'fan' : channelIcon[i]"
+                [channelId]="channelId[i]"
+                [channelDeviceConnected]="channelDeviceConnected[i]"
+                [channelCapacity]="channelCapacity[i]"
+                (btnEvent)="channelLink(channelId[i])"
+                (onOffBtnEvent)="onOffBtn(macId[i],channelCapacity[i],channelId[i])"
+          ></app-channnel-box>
+        </div>
+      </div>
+    </div>
+
+    <app-view-all-button
+      [viewLText]="viewLText[1]"
+      [viewLIcon]="viewLIcon[1]"
+      [viewRIcon]="viewRIcon[0]"
+      [viewRText]="viewRText[2]"
+      [navigateLink]="navigateLink[4]"
+      [showRightButton]="showRightButton"
+    ></app-view-all-button>
+    <ion-row>
+      <ion-col size="12" class="global-italic-subtext"
+        >List of my electronic devices</ion-col
+      >
+    </ion-row>
+
+    <div class="scroll" scrollX="true">
+      <div class="global-scroll-prop">
+        <div *ngFor="let item of resultDeviceList;">
+          <app-device-box
+          [deviceId]="item.devicId"
+          [powerState]="item.state == 1 || item.state=='ON' ? 'power-on' :item.state==0 || item.state=='OFF'? 'power-off' : 'power-default'"
+          [deviceIcon]="item.deviceIcon"
+          [deviceName]="item.deviceName"
+          [channelName]="item.channelName"
+          [plugNumber]="item.plugNumber"
+          [deviceIconsType]="deviceIconsType[0]"
+          [plugBox]="plugBox[1]"
+          (btnClickEvent)="click(item.plugNumber, item.macId,item.state)"
+          >
+          </app-device-box>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="noPermission">
+    <ion-grid>
+      <br />
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-text>No Permission given to access Devices.</ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <app-footer-component [home]="false"></app-footer-component>
+</ion-content>

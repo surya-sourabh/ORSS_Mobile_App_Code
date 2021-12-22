@@ -1,0 +1,64 @@
+<ion-header class="ion-no-border">
+  <app-header
+    [title]="title"
+    [backBtn]="true"
+    [notificationIcon]="false"
+    [notificationBadgeIcon]="false"
+    [nextBtn]="false"
+    [doneBtn]="false"
+    (backBtnEvent)="backBtnTo()"
+  ></app-header>
+</ion-header>
+<ion-content>
+  <ion-title class="ion-no-border">
+    <app-title-bar
+      [titlebarLTiText]="titlebarLTiText"
+      [titlebarRTiText]="titlebarRTiText"
+      [titlebarLSubTiText]="titlebarLSubTiText"
+      [titlebarRSubTiText]="titlebarRSubTiText"
+    ></app-title-bar>
+  </ion-title>
+
+  <app-view-all-button
+    [viewLText]="viewLText"
+    [viewLIcon]="viewLIcon"
+    [viewRIcon]="viewRIcon"
+    [viewRText]="viewRText"
+    [navigateLink]="navigateLink"
+    [showRightButton]="showRightButton"
+  ></app-view-all-button>
+  <ion-row>
+    <ion-col size="12" class="global-italic-subtext"
+      >List of all members in the home</ion-col
+    >
+  </ion-row>
+  <ion-row *ngIf="memberList">
+    <div class="grid-container" *ngFor="let item of membersArray;let i=index">
+      <ion-col>
+        <app-users-box
+          [userMemberName]="memberName[i]"
+          [memberId]="memberId[i]"
+          [memberProfileImage]="memberPhoto[i]"
+          (buttonClickEvent)="buttonClickE()"
+          (memberIdEvent)="boxMemberId=$event"
+        ></app-users-box>
+      </ion-col>
+    </div>
+  </ion-row>
+  <div *ngIf="noMember">
+    <ion-grid>
+      <br />
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-text>No Verified Members</ion-text><br />
+          <ion-text
+            >New members will be shown here once they login with their
+            account.</ion-text
+          >
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <app-footer-component [home]="true"></app-footer-component>
+</ion-content>

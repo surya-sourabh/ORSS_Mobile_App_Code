@@ -1,0 +1,53 @@
+#user-dashboard {
+  background: #484b9a;
+  color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin: 2px 16px;
+  height: 75px;
+  padding: 10px;
+}
+
+.img {
+  margin-top: 4px;
+  border-radius: 50%;
+  width: 1.3cm;
+  height: 1.3cm;
+}
+
+.top-text,
+.bottom-text {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  font-size: 14px;
+}
+
+.top-text {
+  margin-top: -5px;
+  font-weight: 500;
+}
+
+.bottom-text {
+  margin-top: 15px;
+  font-weight: 400;
+}
+
+.userName-container {
+  text-align: end;
+  padding-right: 33px;
+}
+
+#name-info {
+  display: flex;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ffffff;
+}
+.end-align {
+  display: flex;
+  justify-content: flex-end;
+}

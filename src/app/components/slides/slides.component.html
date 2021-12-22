@@ -1,0 +1,40 @@
+<ion-content>
+  <ion-slides
+    pager="true"
+    #slides
+    [options]="slideOpts"
+    (ionSlideDidChange)="ionSlideChange(slides)"
+  >
+    <ion-slide>
+      <img class="img" src="assets/images/slider-1-img.png" alt="image1" />
+      <ion-title class="title">CONNECT</ion-title>
+      <p>
+        Connect all your smart home devices using easiest steps and manage fast.
+      </p>
+    </ion-slide>
+
+    <ion-slide>
+      <img class="img" src="assets/images/slider-2-img.png" alt="image2" />
+      <ion-title class="title slider2-title">CONTROL</ion-title>
+      <p>
+        Control your devices from home, abroad or from anywhere in the world and
+        just relax.
+      </p>
+    </ion-slide>
+
+    <ion-slide>
+      <img class="img" src="assets/images/slider-3-img.png" alt="image2" />
+      <ion-title class="title slider3-title">SAVE</ion-title>
+      <p>
+        Create scenes as per your mood and needs, just one click and manage your
+        home.
+      </p>
+    </ion-slide>
+  </ion-slides>
+
+  <div class="login-container" (click)="next()">
+    <button type="button" class="login-btn" [ngStyle]="styleButton">
+      {{ buttonName }}
+    </button>
+  </div>
+</ion-content>

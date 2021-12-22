@@ -1,0 +1,32 @@
+ion-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #484b9a;
+  overflow: visible;
+}
+ion-toolbar {
+  padding: 0 !important;
+}
+ion-list-header {
+  border-radius: 10px;
+}
+
+#closeBtn-container {
+  position: absolute;
+  right: 0px;
+  top: -5px;
+}
+
+ion-list {
+  padding: 0;
+  background: #fff;
+}
+
+ion-item {
+  --background: #fff;
+}
+
+label {
+  left: 0;
+  color: #484b9a !important;
+}

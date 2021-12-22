@@ -1,0 +1,22 @@
+<ion-header class="ion-no-border"> </ion-header>
+
+<div class="container">
+  <button class="X" (click)="dismiss()">X</button>
+  <ion-list lines="none">
+    <ion-list-header>
+      <ion-label class="header">Clone permissions from...</ion-label>
+    </ion-list-header>
+    <ion-radio-group>
+      <div *ngFor="let item of memberNameArray; let i = index">
+        <ion-item>
+          <ion-radio slot="start" (click)="Id(memberIdArray[i])"></ion-radio>
+          <ion-label>{{ memberNameArray[i] }}</ion-label>
+        </ion-item>
+      </div>
+    </ion-radio-group>
+  </ion-list>
+  <app-primary-button
+    [primaryBtnText]="primaryBtnText"
+    (btnEvent)="changePermission()"
+  ></app-primary-button>
+</div>

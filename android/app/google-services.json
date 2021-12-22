@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "841742503672",
+    "firebase_url": "https://apsis-aac9d-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "apsis-aac9d",
+    "storage_bucket": "apsis-aac9d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:841742503672:android:50d3d1e113277efc60750d",
+        "android_client_info": {
+          "package_name": "com.creware.apsis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "841742503672-dq3l3rbkkcvl4k0312t79q0smj886mih.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMZXnKDFhdVh6T4HLhyXNmMr0RgxhFZew"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "841742503672-dq3l3rbkkcvl4k0312t79q0smj886mih.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

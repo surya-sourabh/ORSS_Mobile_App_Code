@@ -1,0 +1,31 @@
+<ion-header class="ion-no-border"> </ion-header>
+<div class="container">
+  <button class="X" (click)="dismiss()">
+    <ion-icon name="close" style="font-weight: 900; font-size: 14px"></ion-icon>
+  </button>
+  <ion-list>
+    <ion-list-header>
+      <ion-label class="header">Edit Channel Name</ion-label>
+    </ion-list-header>
+    <div class="icon-align" (click)="openModal()">
+      <fa-icon [icon]="['fas', userSelectedIcon]"></fa-icon>
+    </div>
+    <form>
+      <ion-item>
+        <ion-input
+          type="text"
+          maxlength="15"
+          style="font-size: 0.8em; color: #484b9a"
+          [placeholder]="editChannelName"
+          name="editChannelName"
+          [(ngModel)]="editChannelName"
+        ></ion-input>
+      </ion-item>
+    </form>
+  </ion-list>
+
+  <app-primary-button
+    [primaryBtnText]="primaryBtnText"
+    (btnEvent)="saveEditedName()"
+  ></app-primary-button>
+</div>

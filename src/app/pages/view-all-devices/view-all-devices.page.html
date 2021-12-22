@@ -1,0 +1,101 @@
+<ion-header class="ion-no-border">
+  <app-header
+    [title]="title"
+    [titleIcon]="titleIcon"
+    [iconName]="iconName"
+    [backBtn]="true"
+    [notificationIcon]="false"
+    [notificationBadgeIcon]="false"
+    [nextBtn]="false"
+    [doneBtn]="false"
+    (backBtnEvent)="backBtnTo()"
+  ></app-header>
+</ion-header>
+<ion-content>
+  <ion-refresher slot="fixed"  (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+  <app-title-bar
+    [titlebarLSubTiText]="titlebarLSubTiText"
+    [titlebarRSubTiText]="titlebarRSubTiText"
+    [titlebarLTiText]="titlebarLTiText"
+    [titlebarRTiText]="titlebarRTiText"
+  ></app-title-bar>
+
+  <ion-grid class="ion-no-padding">
+    <ion-row class="ion-justify-content-between">
+      <ion-col size="8" class="ion-no-padding">
+        <div class="global-icon-desc-prop text-width">
+          <fa-icon
+            class="global-icon-prop"
+            [icon]="['fas', viewLIcon]"
+          ></fa-icon>
+
+          Devices in {{title}}
+        </div>
+      </ion-col>
+      <ion-col size="4" class="chip-end ion-no-padding" *ngIf="manageBtnHide">
+        <ion-chip fill="outline" class="chips" (click)="manageSheet()">
+          <ion-label>{{viewRText}} </ion-label>&nbsp;
+          <fa-icon [icon]="['fas',viewRIcon]"></fa-icon>
+        </ion-chip>
+      </ion-col>
+    </ion-row>
+    <div *ngIf="showOrHide">
+      <ion-row>
+        <ion-col size="8" class="global-italic-subtext"
+          >List of all devices in this channel. Slide left to remove device,
+          slide right to edit.</ion-col
+        >
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" class="textc ion-no-padding"
+          >You can add {{n}} more electronic devices in this Channel.</ion-col
+        >
+      </ion-row>
+    </div>
+  </ion-grid>
+  <div *ngIf="listOfDevices;else noDevices">
+    <ion-list class="ion-no-padding">
+      <div *ngFor="let item of resultDeviceList;trackBy:trackBy">
+        <app-item-sliding
+          [plugNumber]="item.plugNumber"
+          [powerState]="item.state == 1 || item.state=='ON' ? 'power-on' :item.state==0 || item.state=='OFF'? 'power-off' : 'power-default'"
+          [deviceIconsType]="deviceIconsType[0]"
+          [deviceName]="item.deviceName"
+          [deviceIcons]="item.deviceIcon"
+          [showPowerButton]="showPowerButton[1]"
+          [deviceId]="item.deviceId"
+          (editClickEvent)="operationEdit()"
+          (deleteClickEvent)="operationDelete(item.state)"
+          (deviceIdEvent)="deviceIdEvent=$event"
+          (btnClickEvent)="click(item.plugNumber, item.macId,item.state)"
+          [hideEdit]="hideEdit"
+          [hideDelete]="hideDelete"
+        >
+        </app-item-sliding>
+      </div>
+    </ion-list>
+  </div>
+  <ng-template #noDevices>
+    <div class="img-4">
+      <ion-img [src]="'assets/images/image (4).png'"></ion-img>
+    </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-button
+            class="add-btn-prop"
+            fill="outline"
+            size="small"
+            (click)="addDevice()"
+            >Add Devices<ion-icon id="add-channel-icon" name="add"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ng-template>
+
+  <app-footer-component [home]="true"></app-footer-component>
+</ion-content>

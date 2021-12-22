@@ -1,0 +1,22 @@
+<ion-header class="ion-no-border">
+  <app-header
+    [title]="title"
+    [titleIcon]="titleIcon"
+    [iconName]="iconName"
+    [backBtn]="true"
+    [notificationIcon]="false"
+    [notificationBadgeIcon]="false"
+    [nextBtn]="false"
+    [doneBtn]="false"
+    (backBtnEvent)="backBtnTo()"
+  ></app-header>
+</ion-header>
+
+<ion-content>
+<ion-list>
+  <ion-item *ngFor="let item of network; let i = index" (click)="onClick(item.SSID)">
+
+    <h2>{{item.SSID}}</h2>
+  </ion-item>
+</ion-list>
+</ion-content>

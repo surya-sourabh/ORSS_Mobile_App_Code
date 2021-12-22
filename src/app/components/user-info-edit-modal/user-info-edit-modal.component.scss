@@ -1,0 +1,35 @@
+ion-title {
+  height: 21px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  color: #484b9a;
+}
+ion-content {
+  height: 89%;
+  padding: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  right: 0;
+  margin: 15px;
+  color: #365cbc;
+}
+
+ion-list {
+  margin: 0px 15px;
+}
+
+ion-label {
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  color: #8e8e8e !important;
+}
+
+ion-input {
+  color: #484b9a;
+  font-size: 14px;
+  font-weight: 400;
+}

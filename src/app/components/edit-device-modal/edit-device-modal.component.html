@@ -1,0 +1,85 @@
+<ion-header class="ion-no-border"> </ion-header>
+<div class="container">
+  <button class="X" (click)="dismiss()">
+    <ion-icon name="close" style="font-weight: 900; font-size: 14px"></ion-icon>
+  </button>
+  <ion-list>
+    <ion-list-header>
+      <ion-label class="header">Edit Device </ion-label>
+    </ion-list-header>
+    <form [formGroup]="reactiveForm">
+      <div class="icon-align" (click)="deviceIconSelect()">
+        <fa-icon
+          [icon]="['fas', userSelectedIcon]"
+        ></fa-icon>
+      </div>
+
+      <ion-item>
+        <ion-label class="fsz" style="color: #8e8e8e" position="stacked"
+          >Set New Device Name</ion-label
+        >
+        <ion-input
+          type="text"
+          style="font-size: 0.8em; color: #484b9a"
+          formControlName="deviceNameFromModal"
+          name="deviceNameFromModal"
+          [(ngModel)]="deviceNameFromModal"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label class="fsz" style="color: #8e8e8e" position="stacked"
+          >Choose Channel</ion-label
+        >
+        <ion-select
+          style="color: #484b9a"
+          name="channelIdSelected"
+          formControlName="channelIdSelected"
+          [(ngModel)]="channelIdSelected"
+          [placeholder]="deviceChName"
+        >
+          <ion-select-option
+            *ngFor="let channel of channelsArray; let i = index"
+            [value]="{ channelId: channelId[i], channelName: channelName[i] }"
+          >
+            {{ channelName[i] }}</ion-select-option
+          >
+        </ion-select>
+        <div class="err" *ngIf="submitted && f.channelIdSelected.errors">
+          <div *ngIf="f.channelIdSelected.errors.required">
+            Channel Name required
+          </div>
+        </div>
+      </ion-item>
+      <ion-item>
+        <ion-label class="fsz" style="color: #8e8e8e" position="stacked"
+          >Choose Plug</ion-label
+        >
+        <ion-select
+          style="color: #484b9a"
+          formControlName="plugNumberFromModal"
+          name="plugNumberFromModal"
+          [(ngModel)]="plugNumberFromModal"
+          [placeholder]="plugNumberFromModal"
+        >
+          <ion-select-option
+            *ngFor="
+              let numbers of pnumbers;
+              let i = index;
+              trackBy: trackByValue
+            "
+            >{{ numbers.ind }}
+          </ion-select-option>
+        </ion-select>
+        <div class="err" *ngIf="submitted && f.plugNumberFromModal.errors">
+          <div *ngIf="f.plugNumberFromModal.errors.required">
+            Plug Number is required
+          </div>
+        </div>
+      </ion-item>
+    </form>
+  </ion-list>
+  <app-primary-button
+    [primaryBtnText]="primaryBtnText"
+    (btnEvent)="save()"
+  ></app-primary-button>
+</div>

@@ -1,0 +1,100 @@
+ion-toolbar {
+  --background: #fff;
+}
+.global-desc-prop {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  margin: 0px 25px;
+  text-align: left;
+  align-items: center;
+  color: #8e8e8e;
+}
+ion-content {
+  height: 1000px;
+}
+.back-btn {
+  position: absolute;
+  color: #484b9a;
+  font-weight: 900;
+}
+
+ion-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #484b9a;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  padding: 10px;
+}
+.notification-icon {
+  position: absolute;
+  margin-right: 16px;
+  right: 0;
+  color: #484b9a;
+  font-weight: 400;
+}
+
+ion-fab-button {
+  --background: #ff5353 !important;
+  width: 40px;
+  height: 40px;
+}
+.Device1 {
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  text-align: center;
+  margin: 16px;
+  height: 70px;
+
+  ion-title {
+    color: #484b9a;
+    text-align: left;
+    font-size: 14px;
+    padding: 0;
+    margin: 10px;
+  }
+  p {
+    width: fit-content;
+    height: fit-content;
+    font-size: 12px;
+    color: #7b7b7b;
+    display: inline-block;
+    padding: 0;
+  }
+}
+
+.left-top {
+  display: flex;
+  float: left;
+}
+
+.left-bottom {
+  display: inline-flex;
+  float: left;
+  padding: 0;
+  margin-left: 10px;
+
+  p {
+    margin: 0;
+  }
+}
+.desc-prop {
+  // position: absolute;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+
+  margin: 30px;
+  text-align: center;
+  align-items: center;
+  color: #8e8e8e;
+}

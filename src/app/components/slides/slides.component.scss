@@ -1,0 +1,97 @@
+ion-slides {
+  height: 80%;
+}
+ion-slide {
+  display: block;
+  justify-content: center;
+  padding: 80px 20px 10px 20px;
+}
+
+.img {
+  width: 228px;
+  height: 216px;
+  margin-top: 5px !important;
+}
+
+.title {
+  color: #a078f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  margin-top: 23px;
+}
+.slider2-title {
+  color: #f478ca;
+}
+
+.slider3-title {
+  color: #787df4;
+}
+
+p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+  width: 100%;
+  color: #8e8e8e;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-button {
+  color: #a078f4;
+  border-radius: 10px;
+  width: 140px;
+  height: 40px;
+  --background: #ffff;
+  border: 1px solid #a078f4;
+  box-sizing: border-box;
+  padding: 10px 0px 10px 0px;
+  font-size: 14px;
+  --box-shadow: #ffff;
+  text-transform: capitalize;
+  margin-bottom: 70px;
+  margin-top: 20px;
+  display: flex;
+  text-align: center;
+}
+
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-btn {
+  width: 130px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a078f4;
+  border: 1px solid #a078f4;
+  border-radius: 10px !important;
+  background: #fff;
+}
+
+.slide1 {
+  color: green;
+  border: 1px solid green;
+}
+
+.slide2 {
+  color: blue;
+  border: 1px solid blue;
+}

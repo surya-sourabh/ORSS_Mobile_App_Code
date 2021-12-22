@@ -1,0 +1,141 @@
+ion-content {
+  height: 89%;
+  padding: 20px;
+}
+
+.end-align {
+  display: block;
+  text-align: end;
+}
+
+.global-desc-prop {
+  // position: absolute;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  margin: 0px 25px;
+  text-align: center;
+  align-items: center;
+  color: #8e8e8e;
+}
+.img-5 {
+  padding: 10vw 15vw;
+  // width: 269.6px;
+  // height: 171.25px;
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align {
+  margin-top: -15px;
+  margin-left: 09%;
+}
+
+ion-button {
+  // --font-weight: 400;
+  --background: #fff;
+  --color: #787df4;
+  --border-color: #787df4;
+  --border-width: 1px;
+  --border-radius: 10px;
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans";
+  --background-hover: #fff;
+  --padding: 1px;
+  --background-activated: #fff;
+}
+ion-button ion-icon {
+  font-weight: 900;
+}
+.add-btn-prop {
+  // --border:1px solid #787DF4;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+.global-italic-subtext {
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+  font-style: italic;
+  font-weight: normal;
+  font-size: 12px;
+  margin-left: 10px;
+  padding: 1px;
+  color: #7b7b7b;
+}
+
+.img-4 {
+  padding: 10px 15px;
+  width: 268px;
+  height: 200.77px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.img-6 {
+  padding: 10px 15px;
+  width: 269.6px;
+  height: 171.25px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.box2 {
+  display: flex;
+  flex: 0 0 60px;
+  flex-direction: column;
+  padding: 2px;
+  margin: 13px;
+  p {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #7b7b7b;
+    text-align: center;
+  }
+}
+.sub-box2 {
+  display: flex;
+  flex: 0 0 58px;
+  height: 58px;
+
+  background: #fbfafa;
+  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+
+  align-items: center;
+  .align-subbox2 {
+    margin-left: 25px;
+  }
+  fa-icon {
+    color: #7b7b7b;
+  }
+}
+.scene-items-count {
+  border-radius: 150px;
+  display: inline-flex;
+  background: #7b7b7b;
+  margin-top: -59px;
+  margin-left: 0px;
+  font-family: Roboto;
+  font-size: 12px;
+  height: 20px;
+  width: 19px;
+  line-height: 14px;
+  padding-left: 6px;
+  text-align: center;
+}
+
+.ion-text-center {
+  color: #808080;
+}

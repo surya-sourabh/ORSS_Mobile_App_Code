@@ -1,0 +1,77 @@
+ion-button {
+  font-size: 15px;
+}
+
+ion-title {
+  display: flex;
+  margin-bottom: 15px;
+  padding-top: 10px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  color: #484b9a;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 900;
+}
+.notification-icon {
+  position: absolute;
+  margin-right: 16px;
+  color: #484b9a;
+  font-weight: 400;
+  margin: 15px;
+  right: 0;
+  text-align: right;
+}
+
+ion-buttons {
+  position: absolute;
+  color: #484b9a;
+}
+
+.next-btn {
+  position: absolute;
+  margin: 13px;
+  right: 0;
+  color: #484b9a;
+  bottom: 6px;
+}
+
+.notificationNum-btn {
+  position: absolute;
+  top: -15px;
+  right: 0;
+}
+
+.btn-badge {
+  position: absolute;
+  margin: 15px;
+  right: 0;
+  color: #484b9a;
+  top: 20px;
+}
+
+.badgeIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background-color: #ff9a3e;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  font-size: 8px;
+  border-radius: 50%;
+  right: -2px;
+  top: -20px;
+}
+
+.back-btn{
+--color: #484b9a !important; 
+}
+
+@media screen and (max-width: 300px) {
+  ion-title {
+    font-size: 16px !important;
+  }
+}

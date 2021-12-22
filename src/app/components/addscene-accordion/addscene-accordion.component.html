@@ -1,0 +1,54 @@
+<div class="tab-group ion-no-padding">
+  <div class="tab">
+    <input type="checkbox" id="tab-one" name="tabs" />
+    <label for="tab-one">
+      <i></i>
+      <p>
+        <fa-icon [icon]="['fas','dice-two']"></fa-icon>&nbsp;{{channelName}}
+      </p>
+    </label>
+    <div  *ngFor="let item of devicesInfoId;let i=index;" [ngClass]="[i===0?'tab-content':'tab-content tab-content2']">
+      <div class="top-text">
+        <p>
+          <fa-icon [icon]="['fas','fan']"></fa-icon>&nbsp;&nbsp;{{deviceIconName[i]}}
+        </p>
+        <p class="left-text">Plug {{plug[i]}}</p>
+        <p>
+          <ion-toggle (click)="show(i)" (click)="getDeviceID(i)" class="desc-toggle-btn"></ion-toggle>
+        </p>
+      </div>
+      <p class="devtext" *ngIf=!showState[i]>Device not selected, this device will not play any role in this scene.</p>
+      <div *ngIf=showState[i]>
+        <p class="devtext-selected">Device selected, this device will play a role in this scene.</p>
+        <ion-grid fixed>
+          <ion-row>
+            <ion-col size="5">
+              <p class="devtext1">On during scene is running</p>
+              <div class="ali">
+                <div>
+                  <ion-toggle  (click)="showDuringToggle(i)" class="desc-toggle-btn"></ion-toggle>
+                </div>
+                <!-- <div (click)="$event.stopPropagation();newFunc($event)" class={{powerState}} >
+                  <fa-icon   [icon]="['fas','power-off']"></fa-icon>
+                </div> -->
+              </div>
+            </ion-col>
+            <ion-col size="2" class="ali">
+              <hr class="partition">
+            </ion-col>
+            <ion-col size="5">
+              <p class="devtext1">Off after scene is completed</p>
+              <div class="ali">
+                <div>
+                  <ion-toggle  (click)="showAfterToggle(i)" class="desc-toggle-btn"></ion-toggle>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+
+  </div>
+
+</div>

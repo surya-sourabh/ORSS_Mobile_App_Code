@@ -1,0 +1,113 @@
+<ion-header class="ion-no-border">
+  <app-header
+    [title]="title"
+    [titleIcon]="titleIcon"
+    [iconName]="iconName"
+    [backBtn]="true"
+    [notificationIcon]="false"
+    [notificationBadgeIcon]="false"
+    [nextBtn]="false"
+    [doneBtn]="false"
+    (backBtnEvent)="backBtnTo()"
+  ></app-header>
+</ion-header>
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content> </ion-refresher-content>
+  </ion-refresher>
+  <app-title-bar
+    [titlebarLSubTiText]="titlebarLSubTiText"
+    [titlebarRSubTiText]="titlebarRSubTiText"
+    [titlebarLTiText]="titlebarLTiText"
+    [titlebarRTiText]="titlebarRTiText"
+  ></app-title-bar>
+  <!-- <div *ngIf="showChannels;else showAddChannel"> -->
+  <ion-grid>
+    <app-view-all-button
+      [viewLText]="viewLText"
+      [viewLIcon]="viewLIcon"
+      [viewRIcon]="viewRIcon"
+      [viewRText]="viewRText[0]"
+      [navigateLink]="navigatelink"
+      [showRightButton]="showRightButton"
+    >
+    </app-view-all-button>
+    <ion-row>
+      <ion-col size="12" class="global-italic-subtext"
+        >List of all channels in my home</ion-col
+      >
+    </ion-row>
+  </ion-grid>
+  <ion-grid class="ion-no-padding ion-no-margin">
+    <ion-row>
+      <div *ngFor="let item of channelsArray;let i=index trackBy:trackByValue">
+        <app-my-box
+          [powerState]="activeState[i]"
+          [deviceIcons]="deviceIcons[i] == undefined ? 'fan' : deviceIcons[i]"
+          [sceneName]="channelName[i]"
+          [channelDeviceConnected]="channelDeviceConnected[i]"
+          [deviceIconsType]="deviceIconsType"
+          [channelCapacity]="channelCapacity[i]"
+          [channelId]="channelId[i]"
+          (buttonClickEvent)="buttonClickE()"
+          (channelIdEvent)="boxchannelId=$event"
+          (channelBtnClickEvent)="click(macId[i],channelCapacity[i],channelId[i])"
+          [hideManageBtn]="hideManageBtn"
+        >
+        </app-my-box>
+      </div>
+    </ion-row>
+  </ion-grid>
+  <!-- </div> -->
+  <!-- <ng-template #showAddChannel>
+
+    <app-view-all-button [viewLText]="viewLText" [viewLIcon]="viewLIcon" [viewRIcon]="viewRIcon"
+      [viewRText]="viewRText[1]" [navigateLink]="navigatelink">
+    </app-view-all-button>
+    <div class="global-desc-prop">
+      <p>
+        There are no channels yet, please add a channel &amp; configure it to
+        see the power of our system.
+      </p>
+    </div>
+  </ng-template> -->
+  <!-- <div *ngIf="showSecondaryUserChannels">
+    <ion-grid>
+      <app-view-all-button
+        [viewLText]="viewLText"
+        [viewLIcon]="viewLIcon"
+        [viewRIcon]="viewRIcon"
+        [viewRText]="viewRText[0]"
+        [navigateLink]="navigatelink"
+      >
+      </app-view-all-button>
+      <ion-row>
+        <ion-col size="12" class="global-italic-subtext"
+          >List of all channels in my home</ion-col
+        >
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="ion-no-padding ion-no-margin">
+      <ion-row>
+        <div
+          *ngFor="let item of channelsArray;let i=index trackBy:trackByValue"
+        >
+          <app-my-box
+            [powerState]="activeState[i]"
+            [deviceIcons]="deviceIcons[2]"
+            [sceneName]="channelName[i]"
+            [channelDeviceConnected]="channelDeviceConnected[i]"
+            [deviceIconsType]="deviceIconsType"
+            [channelCapacity]="channelCapacity[i]"
+            [channelId]="channelId[i]"
+            (buttonClickEvent)="buttonClickE()"
+            (channelIdEvent)="boxchannelId=$event"
+            (channelBtnClickEvent)="click(macId[i],channelCapacity[i])"
+          >
+          </app-my-box>
+        </div>
+      </ion-row>
+    </ion-grid>
+  </div> -->
+  <app-footer-component [home]="true"></app-footer-component>
+</ion-content>

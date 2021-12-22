@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">proj-apsis</string>
+    <string name="title_activity_main">proj-apsis</string>
+    <string name="package_name">com.creware.apsis</string>
+    <string name="custom_url_scheme">com.creware.apsis</string>
+    <string name="server_client_id">841742503672-dq3l3rbkkcvl4k0312t79q0smj886mih.apps.googleusercontent.com</string>
+    <string name="facebook_app_id">576470593471943</string>
+    <string name="facebook_client_token">576470593471943</string>
+</resources>

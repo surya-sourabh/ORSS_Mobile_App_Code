@@ -1,0 +1,323 @@
+<ion-header class="ion-no-border">
+  <app-header
+    [title]="title"
+    [titleIcon]="titleIcon"
+    [iconName]="iconName"
+    [backBtn]="true"
+    [notificationIcon]="false"
+    [notificationBadgeIcon]="false"
+    [nextBtn]="false"
+    [doneBtn]="false"
+    (backBtnEvent)="backBtnTo()"
+  ></app-header>
+</ion-header>
+<ion-content>
+  <app-title-bar
+    [titlebarLSubTiText]="titlebarLSubTiText"
+    [titlebarRSubTiText]="titlebarRSubTiText"
+    [titlebarLTiText]="titlebarLTiText"
+    [titlebarRTiText]="titlebarRTiText"
+  ></app-title-bar>
+
+  <div class="global-icon-desc-prop">
+    <fa-icon class="global-icon-prop" [icon]="['fas','plug']"></fa-icon>
+    {{sceneName}}
+  </div>
+
+  <div class="global-italic-subtext">
+    <p>
+      You can start the scene manually, or by scheduling it at a specific time
+      or setting up a timer. Choose your options
+    </p>
+  </div>
+
+  <ion-segment
+    scrollable
+    (ionChange)="segmentChanged($event)"
+    value="manual"
+    class="segement-prop"
+    [(ngModel)]="type"
+  >
+    <ion-segment-button value="manual">
+      <ion-label>Manual</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="timer">
+      <ion-label>Timer</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="schedule">
+      <ion-label>Schedule</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="type">
+    <div *ngSwitchCase="'manual'">
+      <div class="global-desc-prop">
+        This is a default setting of the scene, you can anytime switch on/off
+        your devices as per your scene from the Dashboard or My Scenes page.
+      </div>
+      <a class="al" (click)="openModal_ListDevices()">
+        <p>
+          View devices &amp; channel in this scene &nbsp;<fa-icon
+            [icon]="['fas','arrow-right']"
+          ></fa-icon>
+        </p>
+      </a>
+      <div class="scan-btn">
+        <button type="button" (click)="home()">Take me to Home</button>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="'timer'">
+      <div class="global-desc-prop">
+        You can anytime start/stop this scene from the Dashboard or My Scenes
+        page &amp; your devices will switch on/off as per your choice.
+      </div>
+      <a class="al" (click)="openModal_ListDevices()">
+        <p>
+          View devices &amp; channel in this scene &nbsp;<fa-icon
+            [icon]="['fas','arrow-right']"
+          ></fa-icon>
+        </p>
+      </a>
+      <div class="global-desc-prop">
+        Set Time : &nbsp;<span (click)="openModal()" style="color: #484b9a"
+          >{{userSelectedMinutes}} Min</span
+        >
+      </div>
+      <app-primary-button
+        [primaryBtnText]="primaryBtnText"
+        (btnEvent)="save()"
+      ></app-primary-button>
+    </div>
+    <div *ngSwitchCase="'schedule'">
+      <div class="global-desc-prop">
+        The devices would switch on/off when selected from the Dashboard or by My
+        Scenes page for the time set below.
+      </div>
+      <a class="al" (click)="openModal_ListDevices()">
+        <p>
+          View devices &amp; channel in this scene &nbsp;<fa-icon
+            [icon]="['fas','arrow-right']"
+          ></fa-icon>
+        </p>
+      </a>
+
+      <div>
+        <form>
+          <ion-radio-group [(ngModel)]="ScheduleBasedOn" name="ScheduleBasedOn">
+            <ion-list-header>
+              <ion-label class="scheduletext"
+                >Schedule the scene based on:</ion-label
+              >
+            </ion-list-header>
+
+            <ion-item lines="none" class="radiocss">
+              <ion-radio
+                slot="start"
+                [attr.disabled]="disable"
+                id="time-radio"
+                (click)="timeCheck()"
+                value="Time"
+              ></ion-radio>
+              <ion-label>Time</ion-label>
+            </ion-item>
+            <div class="align-time">
+              <ion-datetime
+                placeholder="{{sh}} : {{sm}} {{ampm1}}"
+                displayFormat="hh:mm A"
+                [pickerOptions]="customPickerOptions"
+                [attr.disabled]="timePicker"
+              ></ion-datetime>
+              <p>to</p>
+              <ion-datetime
+                placeholder="{{sth}} : {{stm}} {{ampm2}}"
+                placeholder="12:00 PM"
+                displayFormat="hh:mm A"
+                [pickerOptions]="customPickerOptions2"
+                [attr.disabled]="timePicker"
+              ></ion-datetime>
+            </div>
+
+            <div class="tog" [ngStyle]="{'pointer-events': styleExp}">
+              <div
+                id="Rd"
+                [ngStyle]="rD"
+                (click)="select('repeat')"
+                class="bg-rd rd"
+              >
+                Repeat daily
+              </div>
+              <p
+                id="Su"
+                class="appear"
+                [ngStyle]="styleButton00"
+                (click)="select('Su')"
+              >
+                S
+              </p>
+              <p
+                id="M"
+                class="appear2"
+                [ngStyle]="styleButton01"
+                (click)="select('M')"
+              >
+                M
+              </p>
+              <p
+                id="Tu"
+                class="appear"
+                [ngStyle]="styleButton02"
+                (click)="select('Tu')"
+              >
+                T
+              </p>
+              <p
+                id="We"
+                class="appear2"
+                [ngStyle]="styleButton03"
+                (click)="select('We')"
+              >
+                W
+              </p>
+              <p
+                id="Th"
+                class="appear"
+                [ngStyle]="styleButton04"
+                (click)="select('Th')"
+              >
+                T
+              </p>
+              <p
+                id="Fr"
+                class="appear"
+                [ngStyle]="styleButton05"
+                (click)="select('Fr')"
+              >
+                F
+              </p>
+              <p
+                id="Sa"
+                class="appear"
+                [ngStyle]="styleButton06"
+                (click)="select('Sa')"
+              >
+                S
+              </p>
+            </div>
+
+            <hr />
+
+            <ion-item lines="none" class="radiocss">
+              <ion-radio
+                value="DayNight"
+                slot="start"
+                [attr.disabled]="checkDayNight"
+                (click)="dayNight()"
+              ></ion-radio>
+              <ion-label>Day/Night</ion-label>
+            </ion-item>
+          </ion-radio-group>
+
+          <ion-radio-group
+            [(ngModel)]="ScheduleDayNight"
+            name="ScheduleDayNight"
+          >
+            <ion-item lines="none" class="radiocss">
+              <ion-radio
+                value="M"
+                name="gr"
+                id="day-radio"
+                [attr.disabled]="sunRiseSunset"
+              ></ion-radio>
+              <ion-label>&nbsp;&nbsp;Sun Rise to Sun Set</ion-label>
+            </ion-item>
+
+            <ion-item lines="none" class="radiocss">
+              <ion-radio
+                value="N"
+                name="gr"
+                id="night-radio"
+                [attr.disabled]="sunRiseSunset"
+              ></ion-radio>
+              <ion-label>&nbsp; &nbsp;Sun Set to Sun Rise</ion-label>
+            </ion-item>
+          </ion-radio-group>
+
+          <div class="tog" [ngStyle]="{'pointer-events': styleExp2}">
+            <div
+              id="Rd1"
+              [ngStyle]="rD1"
+              (click)="select1('repeat1')"
+              class="bg-rd rd"
+            >
+              Repeat daily
+            </div>
+            <p
+              id="Su1"
+              class="appear"
+              [ngStyle]="styleButton0"
+              (click)="select1('Su1')"
+            >
+              S
+            </p>
+            <p
+              id="M1"
+              class="appear2"
+              [ngStyle]="styleButton1"
+              (click)="select1('M1')"
+            >
+              M
+            </p>
+            <p
+              id="Tu1"
+              class="appear"
+              [ngStyle]="styleButton2"
+              (click)="select1('Tu1')"
+            >
+              T
+            </p>
+            <p
+              id="We1"
+              class="appear2"
+              [ngStyle]="styleButton3"
+              (click)="select1('We1')"
+            >
+              W
+            </p>
+            <p
+              id="Th1"
+              class="appear"
+              [ngStyle]="styleButton4"
+              (click)="select1('Th1')"
+            >
+              T
+            </p>
+            <p
+              id="Fr1"
+              class="appear"
+              [ngStyle]="styleButton5"
+              (click)="select1('Fr1')"
+            >
+              F
+            </p>
+            <p
+              id="Sa1"
+              class="appear"
+              [ngStyle]="styleButton6"
+              (click)="select1('Sa1')"
+            >
+              S
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <app-primary-button
+        [primaryBtnText]="primaryBtnText"
+        (btnEvent)="scheduleSave()"
+      ></app-primary-button>
+    </div>
+  </div>
+
+  <app-footer-component [home]="true"></app-footer-component>
+</ion-content>

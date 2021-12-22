@@ -1,0 +1,20 @@
+.memb-box {
+  background: #ffffff;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  display: flex;
+  flex: 0 0 140px;
+  height: 80px;
+  width: 140px;
+  flex-direction: column;
+  padding: 16px;
+  margin: 8px;
+  font-size: 16px;
+}
+.memb-img {
+  height: 50px;
+  width: 50px;
+  margin-top: -50px;
+  margin-left: 65px;
+  border-radius: 50px;
+}

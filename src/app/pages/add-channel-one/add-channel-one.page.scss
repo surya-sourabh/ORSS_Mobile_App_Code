@@ -1,0 +1,152 @@
+ion-list,
+ion-item {
+  background: #fff;
+  --background: #fff;
+}
+
+.prod-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.scan-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 35px;
+
+  button {
+    width: 150px;
+    height: 40px;
+    border: 1px solid #787df4;
+    padding: 10px;
+    background-color: #fff;
+    color: #787df4;
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+.hr-line {
+  height: 1px;
+  background-color: #484b9a;
+  margin: 27px 10px 5px 10px;
+}
+
+.or {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+p.or {
+  text-align: center;
+  font-size: 12px;
+  color: #8e8e8e !important;
+  position: absolute;
+  padding: 10px 10px 20px 10px;
+  height: 14px;
+  background-color: #fff;
+}
+
+ion-list {
+  margin: 0 10px;
+}
+
+ion-label {
+  font-size: 18px;
+  color: #8e8e8e !important;
+}
+
+ion-input {
+  font-size: 0.8em;
+  color: #8e8e8e;
+}
+
+ion-fab {
+  margin-bottom: 10px;
+}
+
+ion-fab-button {
+  --background: #ff5353 !important;
+  width: 40px;
+  height: 40px;
+}
+
+.home-btn {
+  --background: #02055b !important;
+}
+.fab-sub-btns {
+  --background: #02055b !important;
+  --background-activated: #02055b !important;
+  --box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  --color: white;
+  height: 28px;
+  width: 28px;
+  margin: 3px;
+  padding: 0px;
+  margin-bottom: 15px;
+}
+
+.wifi-settings {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 30px;
+}
+
+.texts {
+  width: 150px;
+  padding: 0;
+  margin: 30px;
+}
+
+.below-text {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000000;
+  margin-left: 0;
+  padding: 0;
+}
+
+.sub-text {
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000000;
+}
+
+.toggle-btn {
+  display: flex;
+  justify-content: right;
+}
+
+ion-toggle {
+  top: 20px;
+  right: 30px;
+  height: 21px;
+  width: 39px;
+  --background-checked: #484b9a;
+  --handle-background-checked: #fff;
+  --background: grey;
+}
+
+.err {
+  color: red;
+  font-size: 14px;
+}
+
+.info {
+  margin: 0 60px;
+  font-size: 12px;
+}

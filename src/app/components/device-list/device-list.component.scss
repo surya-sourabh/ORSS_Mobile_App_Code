@@ -1,0 +1,35 @@
+.global-italic-subtext {
+  font-size: 10px;
+  line-height: 12px;
+}
+
+ion-item {
+  --background: #fff;
+}
+ion-item-sliding {
+  margin: 10px 10px;
+  width: auto;
+}
+p {
+  padding: 0px;
+  margin: 5px;
+}
+
+.al-st {
+  display: flex;
+  flex-direction: row;
+}
+.device-name {
+  display: inline-block;
+  height: fit-content;
+  width: fit-content;
+  margin-left: 10px;
+}
+
+.sub-text {
+  font-size: 10px;
+  color: #7b7b7b;
+}
+ion-item-option {
+  width: 62px;
+}

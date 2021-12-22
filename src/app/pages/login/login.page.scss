@@ -1,0 +1,189 @@
+ion-content {
+  width: 100%;
+  height: 89%;
+  padding: 10px;
+}
+
+form {
+  display: grid;
+}
+
+ion-list {
+  margin: 0px 15px;
+}
+
+ion-label {
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  color: #8e8e8e !important;
+}
+
+ion-input {
+  color: #484b9a;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+ion-icon {
+  right: 20px;
+  margin-top: 30px;
+  color: #484b9a;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 10px;
+}
+
+.center-vertical {
+  display: flex;
+  align-items: center;
+}
+
+ion-toggle {
+  height: 4px;
+  width: 24px;
+  --background: #909090;
+  --handle--border-radius: 50%;
+  --handle-height: 11px;
+  --handle-width: 11px;
+  --handle-background: #8686fd;
+  --background-checked: #8686fd;
+  padding: 5px;
+}
+
+.rem-me {
+  margin-left: 5px;
+  font-size: 14px;
+  color: #8e8e8e;
+}
+
+.fg-pass {
+  margin-right: 5px;
+  font-size: 14px;
+  text-decoration: none;
+  display: flex;
+  justify-content: right;
+}
+
+.fg-pass-text {
+  color: #484b9a;
+}
+
+.signup-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  text-decoration: none;
+  color: gray;
+  padding: 0;
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+.signup-text a {
+  font-size: 14px;
+  top: 40%;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  color: #484b9a;
+}
+
+.hr-line {
+  margin: 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #8e8e8e;
+  background: #8e8e8e;
+}
+
+.or {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff !important;
+}
+p.or {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  color: #8e8e8e;
+  position: absolute;
+  padding: 0px 10px;
+  height: 14px;
+}
+
+.two-btns {
+  margin: 27px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+button {
+  background: #4267b2;
+  border-radius: 10px;
+  color: #fff;
+  height: 40px;
+  font-size: 14px;
+}
+
+.fb-btn,
+.google-btn {
+  color: #fff;
+  height: 40px;
+  width: 170px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.google-btn {
+  background: #d34836;
+  color: #fff;
+}
+
+.btnLogos {
+  margin: 0 !important;
+  height: 20px;
+  color: #fff !important;
+  width: 20px;
+}
+
+.lightImg {
+  background: url("../../../assets/images/Lightbulb.svg");
+  width: 270px;
+  height: 170px;
+  position: absolute;
+  bottom: 0;
+  right: -30px;
+  background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 363px) {
+  button {
+    font-size: 14px;
+  }
+
+  .fb-btn,
+  .google-btn {
+    color: #fff;
+    height: 40px;
+    width: 150px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btnLogos {
+    margin: 0 !important;
+    height: 18px;
+    color: #fff !important;
+    width: 18px;
+  }
+}

@@ -1,0 +1,89 @@
+.back-btn {
+  position: absolute;
+  color: #484b9a;
+  font-weight: 900;
+}
+
+ion-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 23px;
+  color: #484b9a;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 900;
+  padding: 10px;
+}
+
+.next-btn {
+  position: absolute;
+  right: 16px;
+  margin-top: -22px;
+  color: #484b9a;
+}
+
+.prod-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+ion-text {
+  color: #000;
+  text-align: center;
+  font-size: 12px;
+}
+
+.scan-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 35px;
+
+  button {
+    width: 150px;
+    height: 40px;
+    border: 1px solid #787df4;
+    padding: 5px;
+    background-color: #fff;
+    color: #787df4;
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+.add-channel-device {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px 15px;
+  font-size: 14px;
+}
+
+ion-icon {
+  font-size: 20px;
+}
+
+.left a,
+.right a {
+  color: #787df4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ban-icon{
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 156.16%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  color: #FF5353;
+}

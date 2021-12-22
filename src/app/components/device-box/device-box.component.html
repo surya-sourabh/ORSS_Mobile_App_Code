@@ -1,0 +1,31 @@
+<div class="box1">
+  <ion-grid class="box-grid">
+    <ion-row>
+      <ion-col size="6">
+        <fa-icon
+          class="global-device-icon-prop icon-margin-box1"
+          [icon]="[deviceIconsType, deviceIcon]"
+        ></fa-icon>
+      </ion-col>
+      <ion-col size="6">
+        <div [ngClass]="powerState" (click)="btnClick()">
+          <fa-icon [icon]="['fas', 'power-off']"></fa-icon>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <p class="device-name">{{ deviceName }}</p>
+        <p>{{ data }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <p class="channel-name">{{ channelName }}</p>
+      </ion-col>
+      <ion-col size="6" *ngIf="plugBox">
+        <div class="plug-box">plug {{ plugNumber }}</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>

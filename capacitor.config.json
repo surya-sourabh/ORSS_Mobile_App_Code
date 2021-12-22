@@ -1,0 +1,19 @@
+{
+  "appId": "com.creware.apsis",
+  "appName": "proj-apsis",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "plugins": {
+    "GoogleAuth": {
+      "scopes": ["profile", "email"],
+      "serverClientId": "841742503672-dq3l3rbkkcvl4k0312t79q0smj886mih.apps.googleusercontent.com",
+      "forceCodeForRefreshToken": true
+    },
+    "PushNotifications": {
+      "presentationOptions": ["badge", "sound", "alert"]
+    }
+  },
+  "server": {
+    "cleartext": true
+  }
+}

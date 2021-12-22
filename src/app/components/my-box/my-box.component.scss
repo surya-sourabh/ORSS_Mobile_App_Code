@@ -1,0 +1,63 @@
+.mybox {
+  background: #ffffff;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  margin: 2vw 4vw;
+  font-size: 14px;
+}
+.power-off {
+  text-align: end;
+  margin-left: 9vw;
+  margin-top: 1vw;
+}
+.power-on {
+  text-align: end;
+  margin-left: 9vw;
+  margin-top: 1vw;
+}
+.power-default {
+  text-align: end;
+  margin-left: 9vw;
+  margin-top: 1vw;
+}
+
+.device-name {
+  width: 100px;
+  height: 16px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  margin: 10px 7px;
+  color: #484b9a;
+}
+.icon-margin-box1 {
+  margin-left: 10px;
+}
+.chips {
+  display: flex;
+  font-size: 12px;
+  text-align: center;
+  color: #787df4;
+  background: #fff;
+  border: 1px solid #787df4;
+  height: 25px;
+  width: fit-content;
+  // margin-top: 30px;
+  // margin-left: 10px;
+}
+.chip-end {
+  display: flex;
+  justify-content: center;
+}
+.device-connected-prop {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  color: #ff9a3e;
+  margin-left: 10px;
+}

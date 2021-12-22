@@ -1,0 +1,131 @@
+ion-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 23px;
+  color: #484b9a;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 900;
+}
+ion-content {
+  height: 80%;
+}
+
+ion-list {
+  margin: 0 15px;
+}
+input::placeholder {
+  font-size: 0.5em;
+}
+
+ion-label {
+  color: #8e8e8e !important;
+  font-size: 18px !important;
+}
+
+ion-input {
+  color: #484b9a;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 5px 0 !important;
+}
+
+.policy-and-terms {
+  display: flex;
+  align-items: center;
+}
+
+ion-toggle {
+  height: 4px;
+  width: 24px;
+  --background: #909090;
+  --handle--border-radius: 50%;
+  --handle-height: 11px;
+  --handle-width: 11px;
+  --handle-background: #8686fd;
+  --background-checked: #8686fd;
+}
+
+#policy {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  font-size: 12px;
+  font-weight: 400;
+  color: #8e8e8e;
+  width: 15em;
+  height: 14px;
+  text-align: center;
+  padding: 0;
+}
+
+#policy a {
+  text-decoration: none;
+  color: #484b9a;
+}
+
+ion-icon {
+  right: 20px;
+  margin-top: 30px;
+  color: #484b9a;
+}
+
+.btn-container {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+}
+#ctn-btn {
+  width: 150px;
+  height: 40px;
+  font-size: 14px;
+  color: #fff;
+  font-weight: 400;
+  border-radius: 10px !important;
+  background: linear-gradient(266.99deg, #f980d7, #8686fd) !important;
+  margin-top: 35px;
+  margin-bottom: 5px;
+  left: 0px;
+  right: 0;
+}
+
+#login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  padding: 0;
+  color: #8e8e8e;
+  margin-top: 10px;
+  text-decoration: none;
+}
+#login-btn a {
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  color: #484b9a;
+}
+
+.lightImg {
+  background: url("../../../assets/images/Lightbulb.svg");
+  width: 270px;
+  height: 170px;
+  position: absolute;
+  bottom: 0;
+  right: -30px;
+  background-repeat: no-repeat;
+  // z-index: 0;
+}
+
+.text-danger {
+  color: #ff0000;
+}
+
+.err {
+  color: red;
+  font-size: 10px;
+}

@@ -1,0 +1,32 @@
+<ion-grid id="user-dashboard">
+  <ion-row>
+    <div class="img-container">
+      <a>
+        <img
+          (click)="goToAccountInfo()"
+          class="img"
+          src="{{ profileImageURL }}"
+          alt="profile_img"
+        />
+      </a>
+    </div>
+    <ion-col>
+      <ion-row class="top-text">
+        <div class="topLeft">
+          {{ titlebarLTiText }}
+        </div>
+        <div class="topRight">
+          {{ titlebarRTiText }}
+        </div>
+      </ion-row>
+      <ion-row class="bottom-text">
+        <div>
+          {{ user?.userName }}
+        </div>
+        <div>
+          {{ titlebarRSubTiText }}
+        </div>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-grid>

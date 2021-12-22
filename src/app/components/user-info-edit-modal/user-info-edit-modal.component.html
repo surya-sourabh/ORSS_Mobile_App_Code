@@ -1,0 +1,33 @@
+<ion-header class="ion-no-border ion-text-center">
+  <ion-toolbar>
+    <ion-title> Edit Information </ion-title>
+    <a class="close-btn" slot="end" (click)="dismiss()">Close</a>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form class="form">
+    <ion-list>
+      <ion-item class="ion-no-padding">
+        <ion-label position="stacked">Name</ion-label>
+        <ion-input type="text" name="name" [(ngModel)]="name"></ion-input>
+      </ion-item>
+      <br />
+      <ion-item class="ion-no-padding">
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          disabled
+        ></ion-input>
+      </ion-item>
+      <br />
+
+      <app-primary-button
+        [primaryBtnText]="primaryBtnText"
+        (btnEvent)="updateProfile()"
+      ></app-primary-button>
+    </ion-list>
+  </form>
+</ion-content>

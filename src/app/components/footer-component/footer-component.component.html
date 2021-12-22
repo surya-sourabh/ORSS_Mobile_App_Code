@@ -1,0 +1,38 @@
+<div class="action-btn">
+  <ion-fab
+    vertical="bottom"
+    horizontal="start"
+    slot="fixed"
+    style="position: fixed"
+  >
+    <ion-fab-button class="home-btn" (click)="homeBtn()" *ngIf="home">
+      <ion-icon name="home"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</div>
+
+<ion-fab
+  vertical="bottom"
+  horizontal="end"
+  slot="fixed"
+  style="position: fixed"
+>
+  <ion-fab-button class="fab-add-btn">
+    <ion-icon name="cog-outline"></ion-icon>
+  </ion-fab-button>
+
+  <ion-fab-list side="start">
+    <ion-fab-button class="fab-sub-btns">
+      <fa-icon [icon]="['fas', 'users']" (click)="myUsers()"></fa-icon>
+    </ion-fab-button>
+    <ion-fab-button class="fab-sub-btns">
+      <fa-icon [icon]="['fas', 'plug']" (click)="myDevices()"></fa-icon>
+    </ion-fab-button>
+    <ion-fab-button class="fab-sub-btns">
+      <fa-icon [icon]="['fas', 'dice-two']" (click)="myChannels()"></fa-icon>
+    </ion-fab-button>
+    <ion-fab-button class="fab-sub-btns">
+      <fa-icon [icon]="['fas', 'cogs']" (click)="myScenes()"></fa-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab>

@@ -1,0 +1,43 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons
+      class="back-btn"
+      slot="start"
+      *ngIf="backBtn"
+      (click)="backBtnLink()"
+    >
+      <ion-button class="back-btn">
+        <ion-icon slot="start"  name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-icon slot="end" name="notifications-outline" class="notification-icon" *ngIf="notificationIcon"></ion-icon>
+    <fa-icon [icon]="['far','clock']" slot="end" style="color: #484b9a; position:absolute; right:11px; top: 15px;" *ngIf="clockIcon"></fa-icon>
+    <div class="btn-badge" *ngIf="notificationBadgeIcon">
+      <ion-icon
+        slot="end"
+        name="notifications-outline"
+        class="notificationNum-btn"
+      >
+      </ion-icon>
+      <div class="badgeIcon" slot="end">{{ notificationNum }}</div>
+    </div>
+    <ion-title><fa-icon [icon]="['fas',iconName]" *ngIf="titleIcon" ></fa-icon>&nbsp;{{ title }}</ion-title>
+    <a class="next-btn" slot="end" *ngIf="nextBtn" (click)="nextBtnLink()"
+      >Next
+    </a>
+    <a class="next-btn" slot="end" *ngIf="doneBtn" (click)="doneBtnLink()"
+      >Done</a
+    >
+
+    <a class="next-btn" slot="end" *ngIf="saveBtn" (click)="saveBtnLink()"
+      >Save</a
+    >
+    <a
+      class="next-btn"
+      slot="end"
+      *ngIf="closeBtn"
+      (click)="scheduleScenePage()"
+      >Close</a
+    >
+  </ion-toolbar>
+</ion-header>

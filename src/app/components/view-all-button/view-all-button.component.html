@@ -1,0 +1,17 @@
+<ion-row class="ion-justify-content-between">
+  <ion-col size="6" class="ion-no-padding">
+    <div class="global-icon-desc-prop">
+      <fa-icon class="global-icon-prop" [icon]="['fas', viewLIcon]"></fa-icon>
+
+      {{ viewLText }}
+    </div>
+  </ion-col>
+  <!-- <div *ngIf="showRightButton"> -->
+  <ion-col size="6" class="chip-end ion-no-padding" *ngIf="showRightButton">
+    <ion-chip fill="outline" class="chips" (click)="navigate()">
+      <ion-label>{{ viewRText }} </ion-label>&nbsp;
+      <fa-icon [icon]="['fas', viewRIcon]"></fa-icon>
+    </ion-chip>
+  </ion-col>
+  <!-- </div> -->
+</ion-row>

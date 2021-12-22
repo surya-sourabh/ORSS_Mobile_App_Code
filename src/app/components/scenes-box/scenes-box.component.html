@@ -1,0 +1,27 @@
+<div (click)="sceneClickEvent()" class="box2">
+  <div *ngIf="statusArray=='run'" class="sub-box2 circle_run_backgroud"    >
+    <p class="activated">Activated</p>
+    <fa-icon
+    class="global-icon-prop align-subbox2 icon_color"
+      [icon]="['fas',sceneIcon]"
+    ></fa-icon>
+    <ion-badge  class="scene-items-count scene_background"  >{{totalScenesDevices}}</ion-badge>
+  </div>
+  <div *ngIf="statusArray=='activate'"   class="sub-box2 circle_backgroud" >
+    <p class="running">Running</p>
+    <fa-icon
+    class="global-icon-prop align-subbox2 icon_color"
+      [icon]="['fas',sceneIcon]"
+    ></fa-icon>
+    <ion-badge  class="scene-items-count scene_background">{{totalScenesDevices}}</ion-badge>
+  </div>
+  <div *ngIf="statusArray=='off'" class="sub-box2 circle_off_backgroud"   >
+    <p class="decativated">Deactivated</p>
+    <fa-icon
+    class="global-icon-prop align-subbox2 icon_off_color"
+      [icon]="['fas',sceneIcon]"
+    ></fa-icon>
+    <ion-badge  class="scene-items-count scene_off_background" >{{totalScenesDevices}}</ion-badge>
+  </div>
+  <p>{{sceneName}}</p>
+</div>

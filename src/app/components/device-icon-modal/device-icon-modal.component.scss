@@ -1,0 +1,65 @@
+ion-toolbar {
+  --background: #fff;
+}
+
+ion-title {
+  height: 21px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  color: #484b9a;
+}
+ion-content {
+  height: 89%;
+}
+
+ion-list {
+  background: #fff;
+}
+
+.close-btn {
+  position: absolute;
+  right: 0;
+  margin: 15px;
+  color: #365cbc;
+}
+
+.sceneName {
+  height: 21px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px;
+  color: #484b9a;
+  margin: 0px 15px;
+}
+
+.icon-align {
+  border: 1px solid #484b9a;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 27px;
+  line-height: 16px;
+  text-align: center;
+  padding: 11px;
+  color: #484b9a;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  margin: auto;
+}
+
+.place-icons{
+  display: flex;
+}
+
+.parent {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.child {
+  flex: 1 0 21%; /* explanation below */
+  margin: 14px;
+  height: 56px;
+}

@@ -1,0 +1,25 @@
+<ion-content>
+  <div class="mail-img-cont">
+    <img class="mail-img" src="assets/images/envelope.svg" alt="mail-image" />
+  </div>
+
+  <div class="text">
+    <ion-text>Check Your Email</ion-text>
+  </div>
+
+  <div class="text2">
+    <p>
+      We have sent a password recovery instructions to your registered email.
+    </p>
+  </div>
+
+  <app-primary-button
+    [primaryBtnText]="primaryBtnText"
+    (btnEvent)="login()"
+  ></app-primary-button>
+
+  <p class="tryAgain-btn">
+    Didn’t received the email? Check your spam folder or
+    <a (click)="fgPass()">try again</a>
+  </p>
+</ion-content>

@@ -1,0 +1,102 @@
+.back-btn {
+  position: absolute;
+  color: #484b9a;
+  font-weight: 900;
+}
+
+ion-item {
+  --background: #fff;
+}
+ion-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 23px;
+  color: #484b9a;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 900;
+  padding: 10px;
+}
+
+.next-btn {
+  position: absolute;
+  right: 16px;
+  margin-top: -22px;
+  color: #484b9a;
+}
+
+.info {
+  color: #484b9a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-style: italic;
+  font-size: 12px;
+}
+
+.steps {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  color: #7b7b7b;
+  font-size: 12px;
+  margin-top: 20px;
+  font-weight: 400;
+
+  ion-text {
+    margin: 5px 16px;
+  }
+}
+
+ion-list {
+  display: grid;
+  margin: 10px 10px;
+  padding: 0;
+}
+
+ion-label {
+  font-size: 18px;
+  color: #8e8e8e !important;
+}
+
+ion-input {
+  font-size: 0.8em;
+  color: #8e8e8e;
+}
+
+ion-fab {
+  margin-bottom: 10px;
+}
+
+ion-fab-button {
+  --background: #ff5353 !important;
+  width: 40px;
+  height: 40px;
+}
+
+.fab-sub-btns {
+  --background: #02055b !important;
+  --background-activated: #02055b !important;
+  --box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  --color: white;
+  height: 28px;
+  width: 28px;
+  margin: 3px;
+  padding: 0px;
+  margin-bottom: 15px;
+}
+
+.err {
+  color: red;
+  font-size: 14px;
+}
+
+.timeZone{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  color: #8e8e8e;
+
+}

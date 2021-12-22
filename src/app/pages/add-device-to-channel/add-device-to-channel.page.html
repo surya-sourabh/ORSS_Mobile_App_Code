@@ -1,0 +1,158 @@
+<app-header
+  [title]="title"
+  [backBtn]="true"
+  [notificationIcon]="false"
+  [nextBtn]="false"
+  [doneBtn]="true"
+  [saveBtn]="false"
+  (backBtnEvent)="backBtnTo()"
+  (doneBtnEvent)="doneBtnTo()"
+></app-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content> </ion-refresher-content>
+  </ion-refresher>
+  <ion-text>
+    <p class="global-italic-subtext cdtext ali-c">
+      You can add more then one device at a time, just choose the channel,
+      provide device name, choose device icon and save it.
+    </p>
+  </ion-text>
+
+  <form [formGroup]="reactiveForm">
+    <ion-grid class="input-grid">
+      <ion-row>
+        <ion-col size="9" class="ion-no-padding">
+          <ion-item class="ion-no-padding">
+            <ion-label
+              class="labels fsz"
+              style="color: #8e8e8e"
+              position="stacked"
+              >Provide Device Name</ion-label
+            >
+            <ion-input
+              type="text"
+              style="font-size: 0.8em; color: #484b9a"
+              [(ngModel)]="deviceName"
+              name="deviceName"
+              formControlName="deviceName"
+            ></ion-input>
+          </ion-item>
+          <div class="err" *ngIf="submitted && f.deviceName.errors">
+            <div *ngIf="f.deviceName.errors.required">
+              Device Name is required
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="3" class="ion-no-padding">
+          <div class="icon-align" (click)="openModal()">
+            <fa-icon [icon]="['fas',userSelectedIcon]"></fa-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6" class="ion-no-padding">
+          <ion-item class="ion-no-padding">
+            <ion-label class="fsz" style="color: #8e8e8e" position="stacked"
+              >Choose Channel</ion-label
+            >
+            <ion-select
+              placeholder="Select One"
+              style="color: #484b9a"
+              [(ngModel)]="channelIdSelected"
+              name="channelIdSelected"
+              (ionChange)="plugFunc()"
+              formControlName="channelIdSelected"
+            >
+              <ion-select-option
+                *ngFor="let channel of channelsArray;let i=index"
+                [value]="{channelId:channelId[i],channelName:channelName[i]}"
+              >
+                {{channelName[i]}}</ion-select-option
+              >
+            </ion-select>
+          </ion-item>
+          <div class="err" *ngIf="submitted && f.channelIdSelected.errors">
+            <div *ngIf="f.channelIdSelected.errors.required">
+              Choose a Channel
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="6" class="ion-no-padding pd">
+          <ion-item class="ion-no-padding">
+            <ion-label class="fsz" style="color: #8e8e8e" position="stacked"
+              >Choose Plug</ion-label
+            >
+            <ion-select
+              placeholder="Select One"
+              style="color: #484b9a"
+              [(ngModel)]="plugNumber"
+              name="plugNumber"
+              formControlName="plugNumber"
+            >
+              <ion-select-option
+                *ngFor="let numbers of plugNumbers; let i=index;trackBy:trackByValue"
+                >{{numbers.ind}}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+          <div class="err" *ngIf="submitted && f.plugNumber.errors">
+            <div *ngIf="f.plugNumber.errors.required">Choose a plug</div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+  <app-primary-button
+    [primaryBtnText]="primaryBtnText"
+    (btnEvent)="save()"
+  ></app-primary-button>
+  <div *ngIf="showlist">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" class="ion-no-padding">
+          <div class="global-icon-desc-prop">
+            <fa-icon
+              class="global-icon-prop"
+              [icon]="['fas', 'plug']"
+            ></fa-icon>
+            Devices in {{showChannelName}}
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" class="global-italic-subtext"
+          >List of all devices in this channel. Slide left to remove device.
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-list>
+      <div *ngFor="let item of devicesInfoId;let i=index;trackBy:trackBy">
+        <app-item-sliding
+          [plugNumber]="plug[i]"
+          [deviceIconsType]="deviceIconsType[0]"
+          [deviceName]="deviceIconName[i]"
+          [deviceIcons]="deviceIcons[i]"
+          [showPowerButton]="showPowerButton[0]"
+          [deviceId]="devicesInfoId[i]"
+          (editClickEvent)="operationEdit()"
+          (deleteClickEvent)="operationDelete()"
+          (deviceIdEvent)="deviceIdEvent=$event"
+          [hideEdit]="hideEdit"
+          [hideDelete]="hideDelete"
+        >
+        </app-item-sliding>
+      </div>
+    </ion-list>
+    <!-- <ng-template #noDevices>
+      <div class="desc-prop">
+        <p>
+          There are no devices added in this channel,Please add one
+        </p>
+      </div>
+    </ng-template> -->
+  </div>
+</ion-content>

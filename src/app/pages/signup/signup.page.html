@@ -1,0 +1,107 @@
+<app-header
+  [title]="title"
+  [backBtn]="true"
+  [notificationIcon]="false"
+  [nextBtn]="false"
+  [doneBtn]="false"
+  [saveBtn]="false"
+  (backBtnEvent)="backBtnTo()"
+></app-header>
+
+<ion-content>
+  <form [formGroup]="reactiveForm">
+    <ion-list>
+      <ion-item class="ion-no-padding">
+        <ion-label class="labels" position="stacked">Name</ion-label>
+        <ion-input
+          required
+          type="text"
+          [(ngModel)]="name"
+          name="name"
+          placeholder="Your full name"
+          formControlName="name"
+        ></ion-input>
+      </ion-item>
+      <div class="err" *ngIf="submitted && f.name.errors">
+        <div *ngIf="f.name.errors.required">Name is required</div>
+      </div>
+
+      <ion-item class="ion-no-padding">
+        <ion-label class="labels" position="stacked">Email</ion-label>
+        <ion-input
+          required
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="email@email.com"
+          formControlName="email"
+        ></ion-input>
+      </ion-item>
+      <div class="err" *ngIf="submitted && f.email.errors">
+        <div *ngIf="f.email.errors.required">Email is required</div>
+      </div>
+
+      <ion-item class="ion-no-padding">
+        <ion-label class="labels" position="stacked">Password</ion-label>
+        <ion-input
+          required
+          [type]="showPassword ? 'text' : 'password'"
+          placeholder="Enter your password here"
+          name="password"
+          [(ngModel)]="password"
+          formControlName="password"
+        ></ion-input>
+        <ion-icon
+          [name]="passwordToggleIcon"
+          (click)="togglePassword()"
+          slot="end"
+        ></ion-icon>
+      </ion-item>
+      <div class="err" *ngIf="submitted && f.password.errors">
+        <div *ngIf="f.password.errors.required">Password is required</div>
+        <div *ngIf="f.password.errors.pattern">
+          Password should contain one in all of these: Atleast 6 character, one
+          Special character, one Number & one UpperCase letter
+        </div>
+      </div>
+
+      <ion-item class="ion-no-padding">
+        <ion-label position="stacked">Confirm Password</ion-label>
+        <ion-input
+          required
+          type="password"
+          placeholder="Enter your confirm password here" 
+          name="cPassword"
+          formControlName="cPassword"
+        >
+        </ion-input>
+      </ion-item>
+      <div class="err" *ngIf="submitted && f.cPassword.errors">
+        <div *ngIf="f.cPassword.errors.required">
+          Confirm Password is required
+        </div>
+        <div *ngIf="f.cPassword.errors.mustMatch">Password did not match</div>
+      </div>
+
+      <br />
+      <div class="policy-and-terms">
+        <ion-toggle [(ngModel)]="check" [checked]="check" (ionChange)="toggle()" [ngModelOptions]="{standalone: true}"></ion-toggle>
+        <ion-text id="policy"
+          >I accept the <a href="">&nbsp;policy and terms.</a></ion-text
+        >
+      </div>
+
+      <app-primary-button
+        type="submit"
+        [primaryBtnText]="primaryBtnText"
+        (btnEvent)="onSubmit()"
+      ></app-primary-button>
+    </ion-list>
+  </form>
+
+  <p id="login-btn">
+    Already have an account?<a (click)="login()">&nbsp;Login here</a>
+  </p>
+</ion-content>
+
+<div class="lightImg"></div>

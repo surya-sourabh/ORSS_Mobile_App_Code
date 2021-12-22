@@ -1,0 +1,34 @@
+<app-header
+  [title]="title"
+  [backBtn]="true"
+  [notificationIcon]="false"
+  [nextBtn]="false"
+  [doneBtn]="false"
+  [saveBtn]="false"
+  (backBtnEvent)="backBtnTo()"
+></app-header>
+<ion-content>
+  <ion-text>
+    <p>
+      Enter the email associated with your account and we’ll send an email with
+      instructions to reset your password.
+    </p>
+  </ion-text>
+
+  <form class="form-container">
+    <ion-item class="ion-no-padding">
+      <ion-label class="labels" position="stacked">Email</ion-label>
+      <ion-input
+        type="text"
+        name="email"
+        [(ngModel)]="email"
+        placeholder="email@email.com"
+      ></ion-input>
+    </ion-item>
+  </form>
+  <app-primary-button
+    [primaryBtnText]="primaryBtnText"
+    (btnEvent)="resetPassword()"
+  ></app-primary-button>
+</ion-content>
+<div class="lightImg"></div>

@@ -1,0 +1,60 @@
+<div class="tab-group ion-no-padding">
+  <div class="tab">
+    <input type="checkbox" id="tab-one" name="tabs" />
+    <label for="tab-one">
+      <i></i>
+      <div class="rowMarginSmall">
+        <div class="col-1">
+          <fa-icon [icon]="['fas', 'dice-two']"></fa-icon>
+        </div>
+        <div class="col-2 margin-left blue-text">
+          {{ channelName }}
+        </div>
+        <div class="toggleBtnEnd">
+          <ion-toggle
+            class="margin-right"
+            type="checkbox"
+            [(ngModel)]="selectAll"
+            name="list_name_child"
+            value="check"
+            (ngModelChange)="handleSelectAllCheckBox($event)"
+          ></ion-toggle>
+        </div>
+      </div>
+    </label>
+    <div class="tab-content">
+      <div *ngFor="let item of primaryUserDevices; let i = index">
+        <div class="rowMargin">
+          <div class="col-1">
+            <fa-icon [icon]="['fas', 'fan']"></fa-icon>
+          </div>
+          <div class="margin-left">
+            <div class="row col-2">
+              <div class="blue-text">
+                {{ item.deviceName }}
+              </div>
+              <div class="orange-text border">Plug {{ item.plugNumber }}</div>
+            </div>
+          </div>
+          <div class="toggleBtnEnd">
+            <ion-toggle
+              type="checkbox"
+              [(ngModel)]="item.grantedPermission"
+              name="list_name_child"
+              value="check"
+              (ngModelChange)="
+                handleDeviceCheckBox(
+                  $event,
+                  item.deviceId,
+                  item.deviceName,
+                  item.plugNumber,
+                  item.plugId
+                )
+              "
+            ></ion-toggle>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

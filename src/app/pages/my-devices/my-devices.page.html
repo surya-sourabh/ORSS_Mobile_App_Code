@@ -1,0 +1,56 @@
+<ion-header class="ion-no-border">
+  <app-header
+    [title]="title"
+    [titleIcon]="titleIcon"
+    [iconName]="iconName"
+    [backBtn]="true"
+    [notificationIcon]="false"
+    [notificationBadgeIcon]="false"
+    [nextBtn]="false"
+    [doneBtn]="false"
+    (backBtnEvent)="backBtnTo()"
+  ></app-header>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed"  (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+  <app-title-bar
+    [titlebarLSubTiText]="titlebarLSubTiText"
+    [titlebarRSubTiText]="titlebarRSubTiText"
+    [titlebarLTiText]="titlebarLTiText"
+    [titlebarRTiText]="titlebarRTiText"
+  ></app-title-bar>
+
+  <div class="global-icon-desc-prop">
+    <fa-icon class="global-icon-prop" [icon]="['fas','dice-two']"></fa-icon>
+    Devices in my home
+  </div>
+
+  <div *ngIf="showDevices;else hide">
+    <div class="global-desc-prop">
+      <p>List of all electronic devices in my home.</p>
+    </div>
+
+    <div *ngFor="let item of resultDeviceList;trackBy:trackBy">
+      <app-devices-in-my-device
+        [deviceId]="item.devicId"
+        [powerState]="item.state == 1 || item.state=='ON' ? 'power-on' :item.state==0 || item.state=='OFF'? 'power-off' : 'power-default'"
+        [deviceName]="item.deviceName"
+        [channelName]="item.channelName"
+        [deviceIcon]="item.deviceIcon"
+        [plugNumber]="item.plugNumber"
+        (btnClickEvent)="click(item.plugNumber, item.macId,item.state)"
+      ></app-devices-in-my-device>
+    </div>
+  </div>
+  <ng-template #hide>
+    <div class="desc-prop">
+      <p>There are no devices added, please add a device.</p>
+    </div>
+  </ng-template>
+
+  <app-footer-component [home]="true"></app-footer-component>
+</ion-content>

@@ -1,0 +1,68 @@
+.box1 {
+  background: #ffffff;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  display: flex;
+  flex: 0 0 156px;
+  padding: 8px;
+  margin: 8px;
+  height: 69px;
+  font-size: 14px;
+  ion-col {
+    padding: 0px;
+    margin-top: 6px;
+    height: 20px;
+    width: auto;
+  }
+}
+.al-st {
+  display: flex;
+  flex-direction: row;
+}
+
+.sub-text {
+  font-size: 12px;
+  color: #7b7b7b;
+  margin-left: 8px;
+  margin-top: 2px;
+}
+
+.sub-text-bottom {
+  font-size: 12px;
+  color: #7b7b7b;
+  margin-left: 20px;
+}
+
+.location {
+  position: absolute;
+  right: 0;
+}
+.box-grid {
+  margin: 1px;
+  padding: 0px;
+}
+.device {
+  display: flex;
+
+  margin: 1px 5px 10px 5px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  margin-bottom: 20px;
+  color: #484b9a;
+}
+
+.channel-name {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  width: fit-content;
+  margin-left: 7px;
+  color: #7b7b7b;
+}
+.icon-margin-box1 {
+  margin-left: 10px;
+}

@@ -1,0 +1,110 @@
+ion-content {
+  height: 100%;
+}
+.back-btn {
+  position: absolute;
+  color: #484b9a;
+  font-weight: 900;
+}
+
+ion-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #484b9a;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  padding: 10px;
+}
+
+ion-label,
+ion-col {
+  background-color: #fff;
+  --background: #fff;
+}
+
+.done-btn {
+  position: absolute;
+  right: 16px;
+  margin-top: -33px;
+  color: #484b9a;
+}
+
+.cdtext {
+  margin: 5px 16px;
+}
+
+.icon-align {
+  border: 1px solid #484b9a;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  padding: 14px;
+  color: #484b9a;
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+}
+
+form {
+  --background: #fff;
+}
+
+@media only screen and (min-width: 0px) {
+  ion-title {
+    font-size: 13px;
+  }
+}
+@media only screen and (min-width: 280px) {
+  ion-title {
+    font-size: 14px;
+  }
+  .fsz {
+    font-size: 16px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 300px) {
+  ion-title {
+    font-size: 16px;
+  }
+  .fsz {
+    font-size: 18px;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 350px) {
+  ion-title,
+  .fsz {
+    font-size: 18px;
+  }
+}
+.input-grid {
+  margin: 0px 16px;
+}
+.pd {
+  padding-left: 10px;
+}
+
+.err {
+  color: red;
+  font-size: 14px;
+}
+.desc-prop {
+  // position: absolute;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+
+  margin: 30px;
+  text-align: center;
+  align-items: center;
+  color: #8e8e8e;
+}

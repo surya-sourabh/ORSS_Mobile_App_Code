@@ -1,0 +1,97 @@
+<app-header
+  [title]="title"
+  [backBtn]="true"
+  [notificationIcon]="false"
+  [nextBtn]="true"
+  [doneBtn]="false"
+  [saveBtn]="false"
+  (backBtnEvent)="backBtnTo()"
+  (nextBtnEvent)="nextBtnTo()"
+></app-header>
+
+<ion-content>
+  <ion-refresher slot="fixed"  (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+  <div class="prod-img">
+    <img src="../../../assets/images/switch.png" alt="img" />
+  </div>
+
+  <div class="scan-btn">
+    <button type="button" (click)="scan()">Scan QR Code</button>
+  </div>
+
+  <hr class="hr-line" />
+  <div class="or">
+    <p class="or">OR</p>
+  </div>
+
+  <form [formGroup]="reactiveForm">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Set Channel ID</ion-label>
+        <ion-input
+          required
+          type="text"
+          placeholder="1234"
+          [(ngModel)]="deviceId"
+          name="deviceId"
+          formControlName="deviceId"
+        ></ion-input>
+      </ion-item>
+      <div class="err" *ngIf="submitted && f.deviceId.errors">
+        <div *ngIf="f.deviceId.errors.required">Channel Id is required</div>
+      </div>
+      <ion-item>
+        <ion-label position="stacked">Set Channel Name</ion-label>
+        <ion-input
+          required
+          type="text"
+          placeholder="Migro_CH1"
+          [(ngModel)]="channelName"
+          name="channelName"
+          formControlName="channelName"
+        ></ion-input>
+      </ion-item>
+      <div class="err" *ngIf="submitted && f.channelName.errors">
+        <div *ngIf="f.channelName.errors.required">
+          Channel Name is required
+        </div>
+      </div>
+
+      <ion-item>
+        <ion-label position="stacked">Set MAC Id</ion-label>
+        <ion-input
+          required
+          type="text"
+          placeholder="11:AA:22:BB:33:CC"
+          [(ngModel)]="MacId"
+          name="MacId"
+          formControlName="MacId"
+        ></ion-input>
+      </ion-item>
+      <div class="err" *ngIf="submitted && f.MacId.errors">
+        <div *ngIf="f.MacId.errors.required">Mac ID is required</div>
+      </div>
+    </ion-list>
+  </form>
+
+  <div class="wifi-settings">
+    <div class="texts">
+      <ion-title class="below-text">Remember WiFi Settings</ion-title>
+      <ion-text class="sub-text"
+        >(Saving WiFi settings will make future device setup much easier)
+      </ion-text>
+    </div>
+    <div class="toggle-btn">
+      <ion-toggle (click)="disToggle()"></ion-toggle>
+    </div>
+  </div>
+
+  <div class="info">
+    <p>Mac Id: {{MacId}}</p>
+    <p>Manufacturing Date: {{ManufacturingDate}}</p>
+  </div>
+  <app-footer-component [home]="true"></app-footer-component>
+</ion-content>

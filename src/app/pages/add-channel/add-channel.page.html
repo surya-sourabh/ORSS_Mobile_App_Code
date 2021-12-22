@@ -1,0 +1,97 @@
+<app-header
+  [title]="title"
+  [backBtn]="true"
+  [notificationIcon]="false"
+  [nextBtn]="true"
+  [doneBtn]="false"
+  [saveBtn]="false"
+  (backBtnEvent)="backBtnTo()"
+  (nextBtnEvent)="nextBtnTo()"
+></app-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content> </ion-refresher-content>
+  </ion-refresher>
+  <ion-text class="info"
+    >Follow our simple steps to configure the channel
+  </ion-text>
+
+  <div class="steps">
+    <ion-text><b>Step 1:</b> Turn Off your smartphone internet data.</ion-text>
+    <ion-text><b>Step 2:</b> Go to WiFi settings of your smart phone.</ion-text>
+    <ion-text>
+      <b>Step 3:</b> Start scanning for available WiFi networks.
+    </ion-text>
+    <ion-text>
+      <b>Step 4:</b> Find Migro Switch in the WiFi networks list.
+    </ion-text>
+    <ion-text><b>Step 5:</b> Connect to Migro Switch.</ion-text>
+    <ion-text><b>Step 6:</b> Once connected, come back to the app.</ion-text>
+    <ion-text>
+      <b>Step 7:</b> Provide SSID and Password of your WiFi.
+    </ion-text>
+  </div>
+  <form [formGroup]="reactiveForm">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Enter SSID</ion-label>
+        <ion-input
+          required
+          type="text"
+          placeholder="MY_WiFI"
+          name="ssid"
+          [(ngModel)]="ssid"
+          formControlName="ssid"
+        ></ion-input>
+      </ion-item>
+      <div class="err" *ngIf="submitted && f.ssid.errors">
+        <div *ngIf="f.ssid.errors.required">SSID is required</div>
+      </div>
+
+      <ion-item>
+        <ion-label required position="stacked">Enter Password</ion-label>
+        <ion-input
+          required
+          placeholder="MY_WiFI_Password"
+          name="wifiPass"
+          [(ngModel)]="wifiPass"
+          formControlName="wifiPass"
+        ></ion-input>
+      </ion-item>
+      <div class="err" *ngIf="submitted && f.wifiPass.errors">
+        <div *ngIf="f.wifiPass.errors.required">Password is required</div>
+      </div>
+    </ion-list>
+    
+    <ion-list>
+      <ion-item>
+        <ion-label>Select TimeZone</ion-label>
+        <ion-select
+        placeholder="Select"
+        style="color: #484b9a; --placeholder-opacity: 1"
+        [(ngModel)]="selected"
+        multiple="false"
+        (ionChange)="valFunc()"
+        formControlName="selected"
+        name="selected"
+        
+        >
+        <ion-select-option
+        *ngFor="let item of timeZones;"
+        [value]="item.text"
+        style="--font-size: 13px !important;"
+        >
+        {{item.text}}</ion-select-option
+        >
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</form>  
+  <app-primary-button [primaryBtnText]="primaryBtnText"
+  (btnEvent)="nextBtnTo()"></app-primary-button>
+
+  <!-- <ion-button (click)="test()"> Testing Page</ion-button> -->
+</ion-content>
+
+<app-footer-component [home]="true"></app-footer-component>

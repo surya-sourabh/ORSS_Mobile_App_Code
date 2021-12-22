@@ -1,0 +1,73 @@
+<ion-header class="ion-no-border">
+  <app-header
+    [title]="title"
+    [backBtn]="true"
+    [notificationIcon]="false"
+    [nextBtn]="false"
+    [doneBtn]="false"
+    [saveBtn]="false"
+    (backBtnEvent)="backBtnTo()"
+  ></app-header>
+</ion-header>
+<ion-content>
+  <div class="container">
+    <div class="ion-no-border">
+      <div class="avatar">
+        <div class="image-upload">
+          <label for="file-input">
+            <img
+              src="{{profileImageURL}}"
+              class="avatar-img"
+              alt="profile-image"
+            />
+          </label>
+
+          <input
+            id="file-input"
+            type="file"
+            name="inputFile"
+            (change)="chooseFile($event)"
+            required
+            hidden
+            accept="image/png, image/jpeg"
+          />
+        </div>
+      </div>
+      <div class="name">
+        <a class="text" (click)="openEditModal()">{{user?.userName}} </a> &nbsp;
+        <img
+          class="edit-icon-img"
+          src="assets/images/blue-edit-icon.png"
+          alt="edit-icon"
+        />
+      </div>
+    </div>
+    <div class="info">
+      <div class="info-title">Personal Information</div>
+      <div class="user-info">
+        <ion-text>Email</ion-text> &nbsp;
+        <ion-text class="data">{{user?.userEmail}}</ion-text>
+      </div>
+    </div>
+    <div style="margin-top: auto; margin-bottom: 50px">
+      <ion-button
+        class="bottom-btn"
+        (click)=" userResetPasswordModal()"
+        expand="block"
+        size="default"
+        *ngIf="showResetButton"
+        >Reset Password</ion-button
+      >
+      <ion-button
+        class="logout"
+        (click)="logoutModal()"
+        expand="block"
+        size="default"
+        >Logout</ion-button
+      >
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <app-footer-component [home]="true"></app-footer-component>
+</ion-footer>

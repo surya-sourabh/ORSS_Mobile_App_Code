@@ -1,0 +1,58 @@
+<ion-header class="ion-no-border">
+  <app-header
+    [title]="title"
+    [titleIcon]="titleIcon"
+    [iconName]="iconName"
+    [backBtn]="true"
+    [notificationIcon]="false"
+    [notificationBadgeIcon]="false"
+    [nextBtn]="false"
+    [doneBtn]="false"
+    (backBtnEvent)="backBtnTo()"
+  ></app-header>
+</ion-header>
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content> </ion-refresher-content>
+  </ion-refresher>
+  <app-title-bar
+    [titlebarLSubTiText]="titlebarLSubTiText"
+    [titlebarRSubTiText]="titlebarRSubTiText"
+    [titlebarLTiText]="titlebarLTiText"
+    [titlebarRTiText]="titlebarRTiText"
+  ></app-title-bar>
+  <ion-grid>
+    <app-view-all-button
+      [viewLText]="viewLText"
+      [viewLIcon]="viewLIcon"
+      [viewRIcon]="viewRIcon"
+      [viewRText]="viewRText"
+      [navigateLink]="navigateLink"
+      [showRightButton]="showRightButton"
+    ></app-view-all-button>
+    <ion-row>
+      <ion-col size="12" class="global-italic-subtext"
+        >List of all scenes in my home</ion-col
+      >
+    </ion-row>
+  </ion-grid>
+  <div *ngIf="listOfDevices;">
+    <ion-grid class="ion-no-padding ion-no-margin">
+      <ion-row>
+        <div *ngFor="let item of sceneName;let i=index;">
+          <app-my-scene-box
+            [powerState]="manualSceneStatus[i] == 'activate' || manualSceneStatus[i] === 'run' ? 'power-on' :manualSceneStatus[i]== 'off' ? 'power-off' : 'power-default'"
+            [deviceIcons]="deviceIcons[i]"
+            [sceneName]="sceneName[i]"
+            [channelDeviceConnected]="totalChannels[i]"
+            [deviceIconsType]="deviceIconsType"
+            (buttonClickEvent)="buttonClickE(sceneId[i])"
+            (sceneBtnClickEvent)="sceneBtnClick(sceneId[i],manualSceneStatus[i])"
+          ></app-my-scene-box>
+        </div>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <app-footer-component [home]="true"></app-footer-component>
+</ion-content>

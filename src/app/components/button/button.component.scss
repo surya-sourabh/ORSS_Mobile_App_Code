@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  width: 130px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  border-radius: 10px !important;
+  background: linear-gradient(266.99251166deg, #f980d7, #8686fd) !important;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}

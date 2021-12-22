@@ -1,0 +1,19 @@
+<ion-grid>
+  <ion-row>
+    <ion-col col-6>
+      <div class="container">
+        <div class="left">
+          {{ userMemberName }} <i class="fa fa-cogs" aria-hidden="true"></i>
+        </div>
+        <div class="right">
+          <img src="{{ memberProfileImage }}" alt="img" class="user-img" />
+        </div>
+      </div>
+      <div class="bottom">
+        <button class="manage-btn" (click)="buttonClick()">
+          Manage&nbsp;<fa-icon [icon]="['fas', 'cogs']"></fa-icon>
+        </button>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>

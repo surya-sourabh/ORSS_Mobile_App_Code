@@ -1,0 +1,30 @@
+<ion-header class="ion-no-border"> </ion-header>
+
+<div class="container">
+  <button class="X" (click)="dismiss()">X</button>
+  <ion-list lines="none">
+    <ion-list-header>
+      <ion-label class="header">Clone permissions from...</ion-label>
+    </ion-list-header>
+    <ion-radio-group value="biff">
+      <ion-item>
+        <ion-label>Akshay</ion-label>
+        <ion-radio slot="start"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Abhishek</ion-label>
+        <ion-radio slot="start"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Naman</ion-label>
+        <ion-radio slot="start"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+  <app-primary-button
+    [primaryBtnText]="primaryBtnText"
+    (btnEvent)="dismiss()"
+  ></app-primary-button>
+</div>

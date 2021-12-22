@@ -1,0 +1,76 @@
+<ion-header class="ion-no-border">
+  <app-header
+    [title]="title"
+    [backBtn]="true"
+    [notificationIcon]="false"
+    [nextBtn]="false"
+    [doneBtn]="false"
+    [saveBtn]="false"
+    (backBtnEvent)="backBtnTo()"
+  ></app-header>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content> </ion-refresher-content>
+  </ion-refresher>
+  <div class="contain">
+    <form class="form" [formGroup]="reactiveForm">
+      <ion-list>
+        <ion-item class="ion-no-padding">
+          <ion-label position="stacked">Enter Name</ion-label>
+          <ion-input
+            name="name"
+            [(ngModel)]="name"
+            placeholder="Enter the member name"
+            formControlName="name"
+            [ngModelOptions]="{standalone: true}"
+          >
+          </ion-input>
+        </ion-item>
+        <div class="err" *ngIf="submitted && f.name.errors">
+          <div *ngIf="f.name.errors.required">Name is required</div>
+        </div>
+        <ion-item class="ion-no-padding">
+          <ion-label position="stacked">Enter Email</ion-label>
+          <ion-input
+            name="email"
+            type="email"
+            [(ngModel)]="email"
+            placeholder="email@email.com"
+            formControlName="email"
+            [ngModelOptions]="{standalone: true}"
+          >
+          </ion-input>
+        </ion-item>
+        <div class="err" *ngIf="submitted && f.email.errors">
+          <div *ngIf="f.email.errors.required">Email is required</div>
+        </div>
+        <ion-item class="ion-no-padding">
+          <ion-label position="stacked">Enter Password</ion-label>
+          <ion-input
+            name="password"
+            type="password"
+            [(ngModel)]="password"
+            formControlName="password"
+            [ngModelOptions]="{standalone: true}"
+          >
+          </ion-input>
+        </ion-item>
+        <div class="err" *ngIf="submitted && f.password.errors">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+          <div *ngIf="f.password.errors.pattern">
+            Password should contain one in all of these: Atleast 6 character,
+            one Special character, one Number & one UpperCase letter
+          </div>
+        </div>
+      </ion-list>
+
+      <app-primary-button
+        [primaryBtnText]="primaryBtnText"
+        (btnEvent)="onSubmit()"
+      ></app-primary-button>
+    </form>
+  </div>
+  <app-footer-component [home]="true"></app-footer-component>
+</ion-content>

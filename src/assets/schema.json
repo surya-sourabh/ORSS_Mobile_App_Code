@@ -1,0 +1,132 @@
+{
+  "userId": 1,
+  "userEmail": "x@gmail.com",
+  "userPassword": "123456789",
+  "createdDatetime": "Timestamp",
+  "updatedDatetime": "Timestamp",
+  "wifi": {
+    "state": true,
+    "ssid": "MyWifi",
+    "wifiPassword": "1245678"
+  },
+
+  "channels": [
+    {
+      "channelId": "Ch+useremail+date.now()",
+      "name": "Migro_CH1",
+      "capacity": 4,
+      "icon": "fa dice-two",
+      "channelState": "String on/off/notset",
+      "devices": [
+        {
+          "deviceId": "d+channelName+date.now()",
+          "plugNumber": 1,
+          "name": "fan",
+          "icon": "fa fan",
+          "plugId": "p+plugnumber+date.now()",
+          "state": "on/off/Not set",
+          "dateAdded": "TimeStamp",
+          "dateModified": "TimeStamp"
+        },
+        {
+          "deviceId": "d2",
+          "plugNumber": 2,
+          "name": "tv",
+          "icon": "fa tv",
+          "plugId": "p2",
+          "state": "on/off/Not set",
+          "dateAdded": "TimeStamp",
+          "dateModified": "TimeStamp"
+        }
+      ]
+    }
+  ],
+  "Scenes": [
+    {
+      "sceneName": "party",
+      "sceneId": "party1",
+      "sceneIcon": "fa cloud-moon",
+      "sceneState": "on/off/unset",
+      "sceneTimer": {
+        "state": false,
+        "time": 10
+      },
+      "sceneSchedule": {
+        "state": true,
+        "sceneByTime": {
+          "state": true,
+          "startTime": "TimeStamp",
+          "endTime": "TimeStamp",
+          "repeat": {
+            "monday": false,
+            "tuesday": false,
+            "wednesday": false,
+            "thursday": false,
+            "friday": false,
+            "saturday": false,
+            "sunday": false
+          }
+        },
+        "sceneByPartOfDay": {
+          "state": false,
+          "day": false,
+          "night": false,
+          "repeat": {
+            "monday": false,
+            "tuesday": false,
+            "wednesday": false,
+            "thursday": false,
+            "friday": false,
+            "saturday": false,
+            "sunday": false
+          }
+        }
+      },
+      "scenesChannels": [
+        {
+          "channelId": "Ch1",
+          "name": "Migro_CH1",
+          "capacity": 4,
+          "icon": "fa dice-two",
+          "devices": [
+            {
+              "deviceId": "d1",
+              "plugNumber": 1,
+              "name": "fan",
+              "icon": "fa fan",
+              "plugId": "p1",
+              "state": "on/off/Not set",
+              "deviceSelect": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "members": [
+    {
+      "memberId": "memb1",
+      "memberName": "mr.x",
+      "memberImg": "img url",
+      "memberChannels": [
+        {
+          "channelId": "Ch1",
+          "name": "Migro_CH1",
+          "capacity": 4,
+          "icon": "fa dice-two",
+          "selected": true,
+          "devices": [
+            {
+              "deviceId": "d1",
+              "plugNumber": 1,
+              "name": "fan",
+              "icon": "fa fan",
+              "plugId": "p1",
+              "deviceSelect": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

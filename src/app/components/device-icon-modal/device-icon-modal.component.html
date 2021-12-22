@@ -1,0 +1,37 @@
+<ion-header class="ion-no-border ion-text-center">
+  <ion-toolbar>
+    <ion-title> Choose an Icon </ion-title>
+    <a class="close-btn" slot="end" (click)="dismiss()">Close</a>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <!-- <div *ngFor="let item of setTime; let i = index"> -->
+    <!-- <div class="place-icons">
+
+      <div  class="icon-align">
+        <fa-icon [icon]="['fas', 'mobile']"></fa-icon>
+      </div>
+      <div  class="icon-align">
+        <fa-icon [icon]="['fas', 'tablet-alt']"></fa-icon>
+      </div>
+      <div  class="icon-align">
+        <fa-icon [icon]="['fas', 'lightbulb']"></fa-icon>
+      </div>
+      <div  class="icon-align">
+        <fa-icon [icon]="['fas', 'car-battery']"></fa-icon>
+      </div>
+      <div  class="icon-align">
+        <fa-icon [icon]="['fas', 'faucet']"></fa-icon>
+      </div>
+      <div  class="icon-align">
+        <fa-icon [icon]="['fas', 'laptop-house']"></fa-icon>
+      </div>
+      
+    </div> -->
+<div class="parent">
+  <div class="icon-align child" *ngFor="let item of icons" (click)="selectedIcon(item)">
+    <fa-icon [icon]="['fas', item]"></fa-icon>
+  </div>
+</div>
+    </ion-content>

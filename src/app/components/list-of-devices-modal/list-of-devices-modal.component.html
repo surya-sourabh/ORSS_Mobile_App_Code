@@ -1,0 +1,22 @@
+<ion-header class="ion-no-border ion-text-center">
+  <ion-toolbar>
+    <ion-title> List of Devices in Scene </ion-title>
+    <a class="close-btn" slot="end" (click)="dismiss()">Close</a>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h5 class="sceneName">Scene : {{ sceneName }}</h5>
+  <ion-list>
+    <div *ngFor="let device of devicesIdArray; let i = index">
+      <app-device-list
+        [deviceIconsType]="deviceIconsType[0]"
+        [deviceName]="deviceName[i]"
+        [deviceIcon]="deviceIcon[i]"
+        [plugNumber]="plugNumber[i]"
+        [channelName]="channelName[i]"
+      >
+      </app-device-list>
+    </div>
+  </ion-list>
+</ion-content>

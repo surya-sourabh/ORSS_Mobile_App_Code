@@ -1,0 +1,31 @@
+.box {
+  background: #eaebff;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  display: flex;
+  flex: 0 0 116px;
+  height: 116px;
+  width: 116px;
+  flex-direction: column;
+  padding: 16px;
+  margin: 8px;
+  font-size: 16px;
+}
+.channel-name-prop {
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #484b9a;
+  margin: 0;
+}
+.device-connected-prop {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  color: #ff9a3e;
+  position:static;
+  bottom:18px;
+}

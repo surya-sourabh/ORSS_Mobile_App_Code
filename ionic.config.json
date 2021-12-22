@@ -1,0 +1,7 @@
+{
+  "name": "proj-apsis",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

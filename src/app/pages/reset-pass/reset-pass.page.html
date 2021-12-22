@@ -1,0 +1,49 @@
+<app-header
+  [title]="title"
+  [backBtn]="true"
+  [notificationIcon]="false"
+  [nextBtn]="false"
+  [doneBtn]="false"
+  [saveBtn]="false"
+  (backBtnEvent)="backBtnTo()"
+></app-header>
+<ion-content>
+  <div class="text">
+    <ion-text
+      >Your new password must be different from your previous used passwords.
+    </ion-text>
+  </div>
+
+  <form>
+    <ion-list>
+      <ion-item class="ion-no-padding">
+        <ion-label class="labels" position="stacked">Password</ion-label>
+        <ion-input
+          type="text"
+          placeholder="password@123"
+          [type]="showPassword ? 'text' : 'password'"
+        ></ion-input>
+        <ion-icon
+          [name]="passwordToggleIcon"
+          (click)="togglePassword()"
+          slot="end"
+        ></ion-icon>
+      </ion-item>
+      <p>Must be atleast 8 characters.</p>
+      <ion-item class="ion-no-padding">
+        <ion-label class="labels" position="stacked"
+          >Confirm Password</ion-label
+        >
+        <ion-input type="password" placeholder="password@123"></ion-input>
+      </ion-item>
+      <p>Both passwords must match.</p>
+    </ion-list>
+
+    <app-primary-button
+      [primaryBtnText]="primaryBtnText"
+      (btnEvent)="backBtnTo()"
+    ></app-primary-button>
+  </form>
+</ion-content>
+
+<div class="lightImg"></div>

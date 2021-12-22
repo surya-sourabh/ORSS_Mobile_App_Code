@@ -1,0 +1,97 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .avatar-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+}
+
+.name {
+  font-size: 18px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .text {
+    right: 0;
+    display: flex;
+    color: #484b9a;
+    text-decoration: underline;
+  }
+}
+
+.edit-icon-img {
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  color: #02055b;
+}
+
+ion-list {
+  margin: 0px 15px;
+}
+
+ion-label {
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  color: #8e8e8e !important;
+}
+
+ion-input {
+  color: #484b9a;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.info {
+  display: block;
+  margin: 15px;
+  padding: 15px 0;
+
+  .info-title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #02055b;
+    padding: 15px 0;
+    border-bottom: 0.5px solid #8e8e8e;
+  }
+
+  .user-info {
+    padding: 15px 0 15px 20px;
+    margin-left: 0px;
+    font-size: 14px;
+    color: #02055b;
+    font-weight: 500;
+    border-bottom: 0.5px solid #d0d0d0;
+  }
+
+  .data {
+    color: #8e8e8e;
+    margin-left: 20px;
+  }
+}
+
+.btns {
+  bottom: 0;
+}
+
+.bottom-btn {
+  --background: #484b9a;
+  margin: 10px 15px;
+}
+.logout {
+  --background: #d0011b;
+  margin: 10px 15px;
+}

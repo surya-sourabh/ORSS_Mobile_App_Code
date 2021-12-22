@@ -1,0 +1,38 @@
+.fab-add-btn {
+  --background: #494c9a;
+  --background-activated: #494c9a;
+  --box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  cursor: none;
+  height: 40px;
+  width: 40px;
+  margin: 0px;
+  padding: 0px;
+  margin-right: 0px;
+}
+.fab-add-btn:hover {
+  --background-hover: #494c9a;
+  --box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+}
+.fab-sub-btns {
+  --background: #494c9a;
+  --background-activated: #494c9a;
+  --box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  --color: white;
+  height: 28px;
+  width: 28px;
+  margin: 3px 10px;
+  padding: 0px;
+  margin-bottom: 15px;
+}
+ion-fab-list {
+  margin-inline: 45px;
+}
+.fab-sub-btns:hover {
+  --background-hover: #494c9a;
+}
+
+.home-btn {
+  height: 40px;
+  width: 40px;
+  --background: #494c9a !important;
+}
